@@ -1,0 +1,34 @@
+item.Grinder.name=Grinder
+death.attack.grinder=%1$s saß auf einem Grinder
+
+grinder.config.cat.grinderEnabledOn.name=Mobs aktiviert
+
+grinder.config.cat.grinderEnabledOn.comment=Der Mob-Grinder ist aktiviert
+
+grinder.config.prop.frequency.name=Grinding-Frequenz
+grinder.config.prop.tossMultiplier.name=Wurfmultiplikator
+grinder.config.prop.grinderYield.name=Minimale Ausbeute des Grinders
+grinder.config.prop.randomExtraYield.name=Maximale zusätzliche Ausbeute des Grinders
+grinder.config.prop.tossPower.name=Wurfkraft
+grinder.config.prop.explosionMagnitude.name=Explosionsstärke des Grinders
+grinder.config.prop.allowPig.name=Erlaube Schweine
+grinder.config.prop.allowCow.name=Erlaube Kühe
+grinder.config.prop.allowChicken.name=Erlaube Hühner
+grinder.config.prop.allowZombie.name=Erlaube Zombies
+grinder.config.prop.allowCreeper.name=Erlaube Creeper
+grinder.config.prop.allowSkeleton.name=Erlaube Skelette
+grinder.config.prop.allowPlayer.name=Erlaube Spieler
+
+grinder.config.prop.frequency.comment=Ticknummer bis zur nächsten Entladung. Weniger = schneller. # 20 Ticks = 1 Sekunde. Standard: 100 (5 Sekunden)
+grinder.config.prop.tossMultiplier.comment=Multiplikator, der mit der Wurfkraft multipliziert wird..\nStandard: 4
+grinder.config.prop.grinderYield.comment=Jeder Grinder wird mindestens so oft auswerfen.\nSetze auf 0 für unendlich.\nStandard: 8
+grinder.config.prop.randomExtraYield.comment=Jeder Grinder hat eine minimale Chance, so oft auszuwerfen.\nStandard: 8
+grinder.config.prop.tossPower.comment=Kraft, mit der der Drop vom Mob weggeworfen wird.\nStandard: 5
+grinder.config.prop.explosionMagnitude.comment=Stärke der Explosion verursacht durch fehlgeschlagenes grinden. Die Standardstärke von Creepern beträgt 300.\nStandard: 150
+grinder.config.prop.allowPig.comment=Erlaube Grinder auf Schweinen?
+grinder.config.prop.allowCow.comment=Erlaube Grinder auf Kühen?
+grinder.config.prop.allowChicken.comment=Erlaube Grinder auf Hühnern?
+grinder.config.prop.allowZombie.comment=Erlaube Grinder auf Zombies?
+grinder.config.prop.allowCreeper.comment=Erlaube Grinder auf Creepern?
+grinder.config.prop.allowSkeleton.comment=Erlaube Grinder auf Skeletten?
+grinder.config.prop.allowPlayer.comment=Erlaube Grinder auf Spielern?\nKeine Angst, nichts wird gegrindet. Es wird nur wie ein ungefährlicher Parasit drankleben..

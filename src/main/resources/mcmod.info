@@ -1,0 +1,20 @@
+[
+{
+  "modid" : "attachablegrinder",
+  "name" : "AttachableGrinder",
+  "version" : "${version}",
+  "url" : "http://ichun.me/mods/attachable-grinder/",
+  "credits" : "",
+  "authorList": [
+    "iChun"
+  ],
+  "description": "Add an attachable Grinder which works on certain mobs.",
+  "updateUrl" : "",
+  "parent" : "",
+  "screenshots": [
+  ],
+  "dependencies": [
+    "Forge", "iChunUtil"
+  ]
+}
+]

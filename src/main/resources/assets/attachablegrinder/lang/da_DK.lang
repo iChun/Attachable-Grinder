@@ -1,0 +1,34 @@
+item.Grinder.name=Kværner
+death.attack.grinder=%1$s sad på en kværner
+
+grinder.config.cat.grinderEnabledOn.name=Tillad mobs
+
+grinder.config.cat.grinderEnabledOn.comment=Mobs kværner er tilladt
+
+grinder.config.prop.frequency.name=Kværnerings frekvens
+grinder.config.prop.tossMultiplier.name=Kast multiplikator
+grinder.config.prop.grinderYield.name=Kværnerens minimum udbytte
+grinder.config.prop.randomExtraYield.name=Kværnerens maximum ekstra udbytte
+grinder.config.prop.tossPower.name=Kaste power
+grinder.config.prop.explosionMagnitude.name=Kværener eksplosion størrelsesorden
+grinder.config.prop.allowPig.name=Tillad grise
+grinder.config.prop.allowCow.name=Tillad køer
+grinder.config.prop.allowChicken.name=Tillad kyllinger
+grinder.config.prop.allowZombie.name=Tillad zombier
+grinder.config.prop.allowCreeper.name=Tillad creepers
+grinder.config.prop.allowSkeleton.name=Tillad skeletter
+grinder.config.prop.allowPlayer.name=Tillad spillere
+
+grinder.config.prop.frequency.comment=Antallet af ticks, indtil den næste decharge. Lavere = hurtigere. # 20 ticks = 1 sekund. Standard: 100 (5 sekunder)
+grinder.config.prop.tossMultiplier.comment=Multiplikator, der ganges mod kaste Power \ nDefault:. 4.
+grinder.config.prop.grinderYield.comment=Hver kværner vil give mindst dette antal gange, før de eksploderer \ nsetp til 0 for uendelig \ nDefault: 8.
+grinder.config.prop.randomExtraYield.comment=Hver kværner har en minimal chance for at give det mange gange \ nDefault:. 8.
+grinder.config.prop.tossPower.comment=Effekt ved hvilken dråben bliver kastet fra pøbelen \ nDefault: 5.
+grinder.config.prop.explosionMagnitude.comment=Omfanget af eksplosion forårsaget af mislykkedes kværninger. Standard slyngplante eksplosion størrelsesorden er 300 \ nDefault: 150
+grinder.config.prop.allowPig.comment=Tillad kværner på grise?
+grinder.config.prop.allowCow.comment=Tillad kværner på køer?
+grinder.config.prop.allowChicken.comment=Tillad kværner på kyllinger?
+grinder.config.prop.allowZombie.comment=Tillad kværner på zombier?
+grinder.config.prop.allowCreeper.comment=Tillad kværner på creepers?
+grinder.config.prop.allowSkeleton.comment=Tillad kværner på skeletter?
+grinder.config.prop.allowPlayer.comment=Tillad kværner på spillere? \nIngen bekymring, intet vil rent faktisk blive slibes ud. Det vil bare holde sig som en ikke-skadelig parasit.

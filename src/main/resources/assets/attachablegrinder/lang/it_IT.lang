@@ -1,0 +1,34 @@
+item.Grinder.name=Tritacarne
+death.attack.grinder=%1$s si è seduto su un tritacarne
+
+grinder.config.cat.grinderEnabledOn.name=Abilita Mobs
+
+grinder.config.cat.grinderEnabledOn.comment=Mobs Grinder è settato su On
+
+grinder.config.prop.frequency.name=Frequenza di tritatura
+grinder.config.prop.tossMultiplier.name=Multipli di drop
+grinder.config.prop.grinderYield.name=Produzione minima del tritacane
+grinder.config.prop.randomExtraYield.name=Produzione massima di extra
+grinder.config.prop.tossPower.name=Potenza di rilascio
+grinder.config.prop.explosionMagnitude.name=Magnetudine dell'esposione del tritacarne
+grinder.config.prop.allowPig.name=Consenti i maiali
+grinder.config.prop.allowCow.name=Consenti le mucche
+grinder.config.prop.allowChicken.name=Consenti le galline
+grinder.config.prop.allowZombie.name=Consenti gli zombie
+grinder.config.prop.allowCreeper.name=Consenti i Creeper
+grinder.config.prop.allowSkeleton.name=Consenti gli scheletri
+grinder.config.prop.allowPlayer.name=Consenti i giocatori
+
+grinder.config.prop.frequency.comment=Numero di tick prima del rilascio successivo. Piu' e' basso = piu' e' veloce. # 20 tick = 1 secondo. Default: 100 (5 secondi)
+grinder.config.prop.tossMultiplier.comment=Numero che viene moltiplicato da Multipli di drop.\nDefault: 4
+grinder.config.prop.grinderYield.comment=Ogni tritacarne fa al massimo questo numero di tritature prima di esplodere.\nImpostandolo a 0 durera' all'infinito \nDefault: 8
+grinder.config.prop.randomExtraYield.comment=Ogni tritacarne ha un minimo di tritature pari a questo numero.\nDefault: 8
+grinder.config.prop.tossPower.comment=Potenza con cui il drop viene espulso dal mob.\nDefault: 5
+grinder.config.prop.explosionMagnitude.comment=Magnietudine dell'esplosione se fallisce. Quella del creeper di base e' 300.\nDefault: 150
+grinder.config.prop.allowPig.comment=Consentire il tritacarne sulle maiale?
+grinder.config.prop.allowCow.comment=Consentire il tritacarne sulle mucche?
+grinder.config.prop.allowChicken.comment=Consentire il tritacarne sui polli?
+grinder.config.prop.allowZombie.comment=Consentire il tritacarne sugli zombie?
+grinder.config.prop.allowCreeper.comment=Consentire il tritacarne sui creeper?
+grinder.config.prop.allowSkeleton.comment=Consentire il tritacarne sugli scheletri?
+grinder.config.prop.allowPlayer.comment=Consentire il tritacarne sui giocatori?\n Non ti preoccupare, nulla verra' tritato dai giocatori. E' solo un parassita innocuo.

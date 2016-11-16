@@ -1,0 +1,76 @@
+package me.ichun.mods.attachablegrinder.common;
+
+import me.ichun.mods.attachablegrinder.common.core.CommonProxy;
+import me.ichun.mods.attachablegrinder.common.core.Config;
+import me.ichun.mods.ichunutil.common.core.config.ConfigHandler;
+import me.ichun.mods.ichunutil.common.iChunUtil;
+import me.ichun.mods.ichunutil.common.module.update.UpdateChecker;
+import net.minecraft.client.renderer.texture.TextureAtlasSprite;
+import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.TextureStitchEvent;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+@Mod(modid = Grinder.MOD_ID, name = Grinder.MOD_NAME,
+        version = Grinder.VERSION,
+        guiFactory = "me.ichun.mods.ichunutil.common.core.config.GenericModGuiFactory",
+        dependencies = "required-after:ichunutil@[" + iChunUtil.VERSION_MAJOR +".0.0," + (iChunUtil.VERSION_MAJOR + 1) + ".0.0)",
+        acceptableRemoteVersions = "[" + iChunUtil.VERSION_MAJOR +".0.0," + iChunUtil.VERSION_MAJOR + ".1.0)",
+        acceptedMinecraftVersions = "[1.9.4,1.10.2]"
+)
+public class Grinder
+{
+    public static final String MOD_NAME = "AttachableGrinder";
+    public static final String MOD_ID = "attachablegrinder";
+    public static final String VERSION = iChunUtil.VERSION_MAJOR + ".0.0";
+
+    @Instance(Grinder.MOD_ID)
+    public static Grinder instance;
+
+    public static Item itemGrinder;
+
+    @SideOnly(Side.CLIENT)
+    public static TextureAtlasSprite grinderSides;
+    @SideOnly(Side.CLIENT)
+    public static TextureAtlasSprite grinderBlades;
+
+    @SidedProxy(clientSide = "me.ichun.mods.attachablegrinder.client.core.ClientProxy", serverSide = "me.ichun.mods.attachablegrinder.common.core.CommonProxy")
+    public static CommonProxy proxy;
+
+    public static Config config;
+
+    @EventHandler
+    public void preLoad(FMLPreInitializationEvent event)
+    {
+        config = (Config)ConfigHandler.registerConfig(new Config(event.getSuggestedConfigurationFile()));
+
+        UpdateChecker.registerMod(new UpdateChecker.ModVersionInfo("Grinder", iChunUtil.VERSION_OF_MC, Grinder.VERSION, false));
+
+        proxy.preInitMod();
+
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+
+    @EventHandler
+    public void load(FMLInitializationEvent event)
+    {
+        proxy.initRenders();
+    }
+
+    @SideOnly(Side.CLIENT)
+    @SubscribeEvent
+    public void onTextureStitch(TextureStitchEvent.Pre event)
+    {
+        grinderSides = event.getMap().registerSprite(new ResourceLocation("attachablegrinder", "model/grinder_ent_sides"));
+        grinderBlades = event.getMap().registerSprite(new ResourceLocation("attachablegrinder", "model/grinder_ent_blade"));
+    }
+}

@@ -1,0 +1,34 @@
+item.Grinder.name=Grinder
+death.attack.grinder=%1$s se sentó en un grinder
+
+grinder.config.cat.grinderEnabledOn.name=Mobs activados
+
+grinder.config.cat.grinderEnabledOn.comment=El Grinder de mobs está activado
+
+grinder.config.prop.frequency.name=Frecuencia de triturado
+grinder.config.prop.tossMultiplier.name=Multiplicador de lanzamiento
+grinder.config.prop.grinderYield.name=Producción mínima del Grinder
+grinder.config.prop.randomExtraYield.name=Producción máxima del Grinder
+grinder.config.prop.tossPower.name=Potencia de lanzamiento
+grinder.config.prop.explosionMagnitude.name=Magnitud de la explosión
+grinder.config.prop.allowPig.name=Permitir cerdos
+grinder.config.prop.allowCow.name=Permitir vacas
+grinder.config.prop.allowChicken.name=Permitir pollos
+grinder.config.prop.allowZombie.name=Permitir zombies
+grinder.config.prop.allowCreeper.name=Permitir creepers
+grinder.config.prop.allowSkeleton.name=Permitir esqueletos
+grinder.config.prop.allowPlayer.name=Permitir jugadores
+
+grinder.config.prop.frequency.comment=Número de ticks hasta la siguiente descarga. Más bajo = Masás rápido. # 20 ticks = 1 segundo. Por defecto: 100 (5 segundos)
+grinder.config.prop.tossMultiplier.comment=Multiplicador de la potencia de lanzamiento.\nPor defecto: 4
+grinder.config.prop.grinderYield.comment=Cada Grinder producirá un número mínimo de veces antes de explotar.\n0 = infinito.\nPor defecto: 8
+grinder.config.prop.randomExtraYield.comment=Cada Grinder tiene una posibilidad de producir este número de veces.\nPor defecto: 8
+grinder.config.prop.tossPower.comment=Potencia con la que el objeto es lanzado del mob.\nPor defecto: 5
+grinder.config.prop.explosionMagnitude.comment=Magnitud de la explosión provocada por el grinder. La explosión de un creeper es 300.\nPor defecto: 150
+grinder.config.prop.allowPig.comment=¿Permitir grinders en cerdos?
+grinder.config.prop.allowCow.comment=¿Permitir grinders en vacas?
+grinder.config.prop.allowChicken.comment=¿Permitir grinders en pollos?
+grinder.config.prop.allowZombie.comment=¿Permitir grinders en zombies?
+grinder.config.prop.allowCreeper.comment=¿Permitir grinders en creepers?
+grinder.config.prop.allowSkeleton.comment=¿Permitir grinders en esqueletos?
+grinder.config.prop.allowPlayer.comment=¿Permitir grinders en jugadores?\nNo te preocupes, no se triturará nada. Solo sobresaldrá como un molesto parasito.

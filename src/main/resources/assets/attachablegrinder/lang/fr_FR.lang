@@ -1,0 +1,34 @@
+item.Grinder.name=Broyeur
+death.attack.grinder=%1$s s'est assis sur un broyeur
+
+grinder.config.cat.grinderEnabledOn.name=Monstres activés
+
+grinder.config.cat.grinderEnabledOn.comment=Broyeur de monstres activé
+
+grinder.config.prop.frequency.name=Fréquence de broyage
+grinder.config.prop.tossMultiplier.name=Multiplicateur de lancer
+grinder.config.prop.grinderYield.name=Production minimale du broyeur
+grinder.config.prop.randomExtraYield.name=Production aléatoire maximale pour le broyeur
+grinder.config.prop.tossPower.name=Puissance de lancer
+grinder.config.prop.explosionMagnitude.name=Ampleur de l'explosion du broyeur
+grinder.config.prop.allowPig.name=Autoriser les cochonsAllow Pigs
+grinder.config.prop.allowCow.name=Autoriser les vaches
+grinder.config.prop.allowChicken.name=Autoriser les poulets
+grinder.config.prop.allowZombie.name=Autoriser les zombies
+grinder.config.prop.allowCreeper.name=Autoriser les creepers
+grinder.config.prop.allowSkeleton.name=Autoriser les squelettes
+grinder.config.prop.allowPlayer.name=Autoriser les joueurs
+
+grinder.config.prop.frequency.comment=Nombre de ticks jusqu'à la prochaine décharge. Bas = Rapide. # 20 ticks = 1 seconde. Défaut: 100 (5 secondes)
+grinder.config.prop.tossMultiplier.comment=Multiplicateur utilisé avec la puissance de lancer.\nDéfaut: 4
+grinder.config.prop.grinderYield.comment=Chaque broyeur expulsera au moins ce nombre d'objets avant d'exploser.\nMettre à 0 pour explusion infinie.\nDéfaut: 8
+grinder.config.prop.randomExtraYield.comment=Chaque broyeur a une chance d'expulser ce nombre d'objets en plus.\nDéfaut: 8
+grinder.config.prop.tossPower.comment=Puissance avec laquelle l'objet est expulsé du monstre.\nDéfaut: 5
+grinder.config.prop.explosionMagnitude.comment=Ampleur de l'explosion causée par l'échec du broyage. Ampleur par défaut d'une explosion de creeper: 300.\nDéfaut: 150
+grinder.config.prop.allowPig.comment=Autoriser le broyage des cochons ?
+grinder.config.prop.allowCow.comment=Autoriser le broyage des vaches ?
+grinder.config.prop.allowChicken.comment=Autoriser le broyage des poulets ?
+grinder.config.prop.allowZombie.comment=Autoriser le broyage des zombies ?Allow Grinders on zombies?
+grinder.config.prop.allowCreeper.comment=Autoriser le broyage des creepers ?
+grinder.config.prop.allowSkeleton.comment=Autoriser le broyage des squelettes ?
+grinder.config.prop.allowPlayer.comment=Autoriser le broyage des joueurs ?\nPas d'inquiétude, rien ne sera vraiment broyé et expulsé. Le broyeur sera juste collé comme un parasite inoffensif.

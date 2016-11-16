@@ -1,0 +1,34 @@
+item.Grinder.name=Malare
+death.attack.grinder=%1$s satt på en malare
+
+grinder.config.cat.grinderEnabledOn.name=Tillåtna Mobs
+
+grinder.config.cat.grinderEnabledOn.comment=Mobmalare Är aktiverat På
+
+grinder.config.prop.frequency.name=Malarfekvens
+grinder.config.prop.tossMultiplier.name=Kastfaktor
+grinder.config.prop.grinderYield.name=Malarens minimala avkastning
+grinder.config.prop.randomExtraYield.name=Malarens maximala avkastning
+grinder.config.prop.tossPower.name=Kastkraft
+grinder.config.prop.explosionMagnitude.name=Malarexplosionsmängd
+grinder.config.prop.allowPig.name=Tillåt Grisar
+grinder.config.prop.allowCow.name=Tillåt Kossor
+grinder.config.prop.allowChicken.name=Tillåt Kycklingar
+grinder.config.prop.allowZombie.name=Tillåt Zombies
+grinder.config.prop.allowCreeper.name=Tillåt Creepers
+grinder.config.prop.allowSkeleton.name=Tillåt Skelett
+grinder.config.prop.allowPlayer.name=Tillåt Spelare
+
+grinder.config.prop.frequency.comment=Antal ticks till nästa urladdning. Lägre = snabbare. # 20 ticks = 1 sekund. Standardvärde: 100 (5 sekunder)
+grinder.config.prop.tossMultiplier.comment=Faktor som multipliceras mot kastkraften.\nStandardvärde: 4
+grinder.config.prop.grinderYield.comment=Alla malare kommer att ge avkastning följande antal gånger innan explosion.\nSätt till 0 för oändlighet.\nStandardvärde: 8
+grinder.config.prop.randomExtraYield.comment=Varje malare kommer att ge avkastning minst så här många gånger.\nStandardvärde: 8
+grinder.config.prop.tossPower.comment=Kraften som objekten kastas ifrån moben med.\nStandardvärde: 5
+grinder.config.prop.explosionMagnitude.comment=Explosionsstyrka, vilket som sker då malaren exploderar. Creepers har 300.\nStandardvärde: 150
+grinder.config.prop.allowPig.comment=Tillåt malare på grisar?
+grinder.config.prop.allowCow.comment=Tillåt malare på kossor?
+grinder.config.prop.allowChicken.comment=Tillåt malare på kycklingar?
+grinder.config.prop.allowZombie.comment=Tilllåt malare på zombies?
+grinder.config.prop.allowCreeper.comment=Tillåt malare på creepers?
+grinder.config.prop.allowSkeleton.comment=Tillåt malare på skelett?
+grinder.config.prop.allowPlayer.comment=Tillåt malare på spelare?\noroa dig inte, inget kommer att malas ut. Den bara sätter sig fast som ett ofarligt skadedjur.
