@@ -1,9 +1,6 @@
 package me.ichun.mods.attachablegrinder.common.entity;
 
-import me.ichun.mods.attachablegrinder.client.render.RenderGrinder;
 import me.ichun.mods.attachablegrinder.common.Grinder;
-import net.minecraft.client.renderer.entity.Render;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -30,14 +27,10 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
 public class EntityGrinder extends Entity
-        implements IRenderFactory<EntityGrinder>
 {
     public static DamageSource grinder = new DamageSource("grinder");
     private static final DataParameter<Integer> PARENT_ID = EntityDataManager.createKey(EntityGrinder.class, DataSerializers.VARINT);
@@ -352,12 +345,5 @@ public class EntityGrinder extends Entity
 
         tag.setInteger("ticks", ticks);
         tag.setInteger("type", getMobType(animal));
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public Render<EntityGrinder> createRenderFor(RenderManager manager)
-    {
-        return new RenderGrinder(manager);
     }
 }

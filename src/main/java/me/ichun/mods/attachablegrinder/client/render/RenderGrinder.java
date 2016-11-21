@@ -20,6 +20,7 @@ import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.client.registry.IRenderFactory;
 import org.lwjgl.opengl.GL11;
 
 public class RenderGrinder extends Render<EntityGrinder>
@@ -201,4 +202,12 @@ public class RenderGrinder extends Render<EntityGrinder>
         return TextureMap.LOCATION_BLOCKS_TEXTURE;
     }
 
+    public static class RenderFactory implements IRenderFactory<EntityGrinder>
+    {
+        @Override
+        public Render<EntityGrinder> createRenderFor(RenderManager manager)
+        {
+            return new RenderGrinder(manager);
+        }
+    }
 }

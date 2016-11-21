@@ -1,5 +1,6 @@
 package me.ichun.mods.attachablegrinder.client.core;
 
+import me.ichun.mods.attachablegrinder.client.render.RenderGrinder;
 import me.ichun.mods.attachablegrinder.common.Grinder;
 import me.ichun.mods.attachablegrinder.common.core.CommonProxy;
 import me.ichun.mods.attachablegrinder.common.entity.EntityGrinder;
@@ -14,7 +15,7 @@ public class ClientProxy extends CommonProxy
     {
         super.preInitMod();
 
-        RenderingRegistry.registerEntityRenderingHandler(EntityGrinder.class, new EntityGrinder(null));
+        RenderingRegistry.registerEntityRenderingHandler(EntityGrinder.class, new RenderGrinder.RenderFactory());
     }
 
     @Override

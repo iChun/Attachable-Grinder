@@ -51,7 +51,7 @@ public class Grinder
     @EventHandler
     public void preLoad(FMLPreInitializationEvent event)
     {
-        config = (Config)ConfigHandler.registerConfig(new Config(event.getSuggestedConfigurationFile()));
+        config = ConfigHandler.registerConfig(new Config(event.getSuggestedConfigurationFile()));
 
         UpdateChecker.registerMod(new UpdateChecker.ModVersionInfo("Grinder", iChunUtil.VERSION_OF_MC, Grinder.VERSION, false));
 
