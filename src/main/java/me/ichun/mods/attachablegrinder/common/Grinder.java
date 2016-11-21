@@ -1,7 +1,7 @@
 package me.ichun.mods.attachablegrinder.common;
 
-import me.ichun.mods.attachablegrinder.common.core.CommonProxy;
 import me.ichun.mods.attachablegrinder.common.core.Config;
+import me.ichun.mods.attachablegrinder.common.core.ProxyCommon;
 import me.ichun.mods.ichunutil.common.core.config.ConfigHandler;
 import me.ichun.mods.ichunutil.common.iChunUtil;
 import me.ichun.mods.ichunutil.common.module.update.UpdateChecker;
@@ -20,12 +20,12 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+//No need for acceptedMinecraftVersions, the iChunUtil range should sort it out.
 @Mod(modid = Grinder.MOD_ID, name = Grinder.MOD_NAME,
         version = Grinder.VERSION,
         guiFactory = "me.ichun.mods.ichunutil.common.core.config.GenericModGuiFactory",
         dependencies = "required-after:ichunutil@[" + iChunUtil.VERSION_MAJOR +".0.0," + (iChunUtil.VERSION_MAJOR + 1) + ".0.0)",
-        acceptableRemoteVersions = "[" + iChunUtil.VERSION_MAJOR +".0.0," + iChunUtil.VERSION_MAJOR + ".1.0)",
-        acceptedMinecraftVersions = "[1.9.4,1.10.2]"
+        acceptableRemoteVersions = "[" + iChunUtil.VERSION_MAJOR +".0.0," + iChunUtil.VERSION_MAJOR + ".1.0)"
 )
 public class Grinder
 {
@@ -43,8 +43,8 @@ public class Grinder
     @SideOnly(Side.CLIENT)
     public static TextureAtlasSprite grinderBlades;
 
-    @SidedProxy(clientSide = "me.ichun.mods.attachablegrinder.client.core.ClientProxy", serverSide = "me.ichun.mods.attachablegrinder.common.core.CommonProxy")
-    public static CommonProxy proxy;
+    @SidedProxy(clientSide = "me.ichun.mods.attachablegrinder.client.core.ProxyClient", serverSide = "me.ichun.mods.attachablegrinder.common.core.ProxyCommon")
+    public static ProxyCommon proxy;
 
     public static Config config;
 
