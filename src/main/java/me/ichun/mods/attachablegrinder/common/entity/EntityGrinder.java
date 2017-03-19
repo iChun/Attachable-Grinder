@@ -27,6 +27,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
@@ -231,6 +233,13 @@ public class EntityGrinder extends Entity
                 }
             }
         }
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public boolean isInRangeToRenderDist(double distance)
+    {
+        return animal == null ? super.isInRangeToRenderDist(distance) : animal.isInRangeToRenderDist(distance);
     }
 
     public double getParentOffset(EntityLivingBase ent)
