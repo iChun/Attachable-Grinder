@@ -1,4 +1,4 @@
-item.Grinder.name=Grinder
+item.Grinder.name=Attachable Grinder
 death.attack.grinder=%1$s sat on a grinder
 
 grinder.config.cat.grinderEnabledOn.name=Enabled Mobs
@@ -32,3 +32,5 @@ grinder.config.prop.allowZombie.comment=Allow Grinders on zombies?
 grinder.config.prop.allowCreeper.comment=Allow Grinders on creepers?
 grinder.config.prop.allowSkeleton.comment=Allow Grinders on skeletons?
 grinder.config.prop.allowPlayer.comment=Allow Grinders on players?\nDon't worry, nothing will actually be grinded out. It'll just stick like a non-harmful parasite.
+
+entity.entityGrinder.name=Attachable Grinder

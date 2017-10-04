@@ -5,10 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityMinecart;
-import net.minecraft.entity.monster.EntityCreeper;
-import net.minecraft.entity.monster.EntitySkeleton;
-import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.monster.SkeletonType;
+import net.minecraft.entity.monster.*;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityMooshroom;
@@ -75,14 +72,14 @@ public class EntityGrinder extends Entity
     {
         if(animal == null)
         {
-            if(!worldObj.isRemote && !firstUpdate)
+            if(!world.isRemote && !firstUpdate)
             {
                 setDead();
                 return;
             }
             else
             {
-                Entity ent = worldObj.getEntityByID(getParent());
+                Entity ent = world.getEntityByID(getParent());
                 if(ent instanceof EntityLivingBase)
                 {
                     animal = (EntityLivingBase)ent;
@@ -99,11 +96,11 @@ public class EntityGrinder extends Entity
         {
             firstUpdate = false;
 
-            if(!worldObj.isRemote)
+            if(!world.isRemote)
             {
                 Entity parent = null;
                 double dist = -1D;
-                List ents = worldObj.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().expand(0.5D, 0.5D, 0.5D));
+                List ents = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().expand(0.5D, 0.5D, 0.5D));
                 for(int i = 0; i < ents.size(); i++)
                 {
                     Entity ent = (Entity)ents.get(i);
@@ -111,7 +108,7 @@ public class EntityGrinder extends Entity
                     {
                         continue;
                     }
-                    double mobDist = ent.getDistanceToEntity(this);
+                    double mobDist = ent.getDistance(this);
                     if(dist == -1 || mobDist < dist)
                     {
                         parent = ent;
@@ -175,18 +172,18 @@ public class EntityGrinder extends Entity
             if(!animal.isEntityAlive())
             {
                 setDead();
-                if((!explodable || remainingYield > Grinder.config.grinderYield) && !worldObj.isRemote)
+                if((!explodable || remainingYield > Grinder.config.grinderYield) && !world.isRemote)
                 {
                     dropItem(Grinder.itemGrinder, 1);
                 }
                 return;
             }
 
-            if(!worldObj.isRemote)
+            if(!world.isRemote)
             {
                 if(ticks % timeBetweenYield == (timeBetweenYield - 1) && canGrind())
                 {
-                    EntityItem item = new EntityItem(worldObj, posX, posY + getParentOffset(animal), posZ, animal instanceof EntitySkeleton ? (((EntitySkeleton)animal).getSkeletonType() == SkeletonType.WITHER && rand.nextFloat() < 0.15F ? new ItemStack(Items.COAL, 1, 0) : new ItemStack(Items.DYE, 1, 15)) : new ItemStack(getDrop(animal), 1, 0));
+                    EntityItem item = new EntityItem(world, posX, posY + getParentOffset(animal), posZ, animal instanceof AbstractSkeleton ? (animal instanceof EntityWitherSkeleton && rand.nextFloat() < 0.15F ? new ItemStack(Items.COAL, 1, 0) : new ItemStack(Items.DYE, 1, 15)) : new ItemStack(getDrop(animal), 1, 0));
                     item.setPickupDelay(10);
                     if(this.animal instanceof EntityCow || this.animal instanceof EntityPig || this.animal instanceof EntityChicken)
                     {
@@ -200,7 +197,7 @@ public class EntityGrinder extends Entity
                         double par1 = (double)(-MathHelper.sin(animal.renderYawOffset / 180.0F * (float)Math.PI) * MathHelper.cos(animal.rotationPitch / 180.0F * (float)Math.PI));
                         double par5 = (double)(MathHelper.cos(animal.renderYawOffset / 180.0F * (float)Math.PI) * MathHelper.cos(animal.rotationPitch / 180.0F * (float)Math.PI));
 
-                        float f2 = MathHelper.sqrt_double(par1 * par1 + par5 * par5);
+                        float f2 = MathHelper.sqrt(par1 * par1 + par5 * par5);
                         par1 /= (double)f2;
                         par5 /= (double)f2;
                         par1 += this.rand.nextGaussian() * (double)(this.rand.nextBoolean() ? -1 : 1) * 0.007499999832361937D * (double)1.5F;
@@ -212,8 +209,8 @@ public class EntityGrinder extends Entity
                         item.motionY = (double)((2 * ((float)Grinder.config.tossPower / 100F)) * ((rand.nextInt(3))));
                     }
 
-                    worldObj.spawnEntityInWorld(item);
-                    worldObj.playSound(null, this.posX, this.posY, this.posZ, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.NEUTRAL, 0.2F, 1.0F + (rand.nextFloat() - rand.nextFloat()) * 0.4F);
+                    world.spawnEntity(item);
+                    world.playSound(null, this.posX, this.posY, this.posZ, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.NEUTRAL, 0.2F, 1.0F + (rand.nextFloat() - rand.nextFloat()) * 0.4F);
 
                     remainingYield--;
                 }
@@ -222,7 +219,7 @@ public class EntityGrinder extends Entity
                     setDead();
                     animal.setDead();
 
-                    worldObj.createExplosion(animal, posX, posY, posZ, (float)(((float)Grinder.config.explosionMagnitude / 100F) + (animal instanceof EntityCreeper ? 1.5D : animal instanceof EntityChicken ? -0.5D : 0.0D)), worldObj.getGameRules().getBoolean("mobGriefing"));
+                    world.createExplosion(animal, posX, posY, posZ, (float)(((float)Grinder.config.explosionMagnitude / 100F) + (animal instanceof EntityCreeper ? 1.5D : animal instanceof EntityChicken ? -0.5D : 0.0D)), world.getGameRules().getBoolean("mobGriefing"));
                 }
                 for (Entity entity : animal.getPassengers())
                 {
@@ -244,7 +241,7 @@ public class EntityGrinder extends Entity
 
     public double getParentOffset(EntityLivingBase ent)
     {
-        return ent instanceof EntityPig ? 1.0D : ent instanceof EntityCow ? 1.4D : ent instanceof EntityChicken ? 0.4D : ent instanceof EntityCreeper ? 0.8D : ent instanceof EntityZombie ? 1.0D : ent instanceof EntitySkeleton && ((EntitySkeleton)ent).getSkeletonType() == SkeletonType.WITHER ? 1.4D : 1.2D;
+        return ent instanceof EntityPig ? 1.0D : ent instanceof EntityCow ? 1.4D : ent instanceof EntityChicken ? 0.4D : ent instanceof EntityCreeper ? 0.8D : ent instanceof EntityZombie ? 1.0D : ent instanceof EntityWitherSkeleton ? 1.4D : 1.2D;
     }
 
     public Item getDrop(EntityLivingBase ent)

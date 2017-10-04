@@ -5,8 +5,8 @@ import me.ichun.mods.attachablegrinder.common.entity.EntityGrinder;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.monster.AbstractSkeleton;
 import net.minecraft.entity.monster.EntityCreeper;
-import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
@@ -26,7 +26,7 @@ public class ItemGrinder extends Item
         maxStackSize = 1;
         setCreativeTab(CreativeTabs.TOOLS);
         setUnlocalizedName("Grinder");
-        setRegistryName(new ResourceLocation(Grinder.MOD_ID, "Grinder"));
+        setRegistryName(new ResourceLocation(Grinder.MOD_ID, "grinder"));
     }
 
     @Override
@@ -34,7 +34,7 @@ public class ItemGrinder extends Item
     {
         if(canAttach(entityliving) && !entityliving.isChild())
         {
-            List ents = entityliving.worldObj.getEntitiesWithinAABBExcludingEntity(entityliving, entityliving.getEntityBoundingBox().expand(0.2D, 0.2D, 0.2D));
+            List ents = entityliving.world.getEntitiesWithinAABBExcludingEntity(entityliving, entityliving.getEntityBoundingBox().grow(0.2D));
             for(int i = 0; i < ents.size(); i++)
             {
                 Entity ent = (Entity)ents.get(i);
@@ -48,11 +48,11 @@ public class ItemGrinder extends Item
                     return false;
                 }
             }
-            if(!entityliving.worldObj.isRemote)
+            if(!entityliving.world.isRemote)
             {
-                entityliving.worldObj.spawnEntityInWorld(new EntityGrinder(entityliving.worldObj, entityliving));
+                entityliving.world.spawnEntity(new EntityGrinder(entityliving.world, entityliving));
             }
-            itemstack.stackSize--;
+            itemstack.shrink(1);
             return true;
         }
         return false;
@@ -66,6 +66,6 @@ public class ItemGrinder extends Item
 
     public boolean canAttach(EntityLivingBase ent)
     {
-        return ent instanceof EntityPig && Grinder.config.allowPig == 1 || ent instanceof EntityCow && Grinder.config.allowCow == 1 || ent instanceof EntityChicken && Grinder.config.allowChicken == 1 || ent instanceof EntityCreeper && Grinder.config.allowCreeper == 1 || ent instanceof EntityZombie && Grinder.config.allowZombie == 1 || ent instanceof EntitySkeleton && Grinder.config.allowSkeleton == 1 || ent instanceof EntityPlayer && Grinder.config.allowPlayer == 1;
+        return ent instanceof EntityPig && Grinder.config.allowPig == 1 || ent instanceof EntityCow && Grinder.config.allowCow == 1 || ent instanceof EntityChicken && Grinder.config.allowChicken == 1 || ent instanceof EntityCreeper && Grinder.config.allowCreeper == 1 || ent instanceof EntityZombie && Grinder.config.allowZombie == 1 || ent instanceof AbstractSkeleton && Grinder.config.allowSkeleton == 1 || ent instanceof EntityPlayer && Grinder.config.allowPlayer == 1;
     }
 }

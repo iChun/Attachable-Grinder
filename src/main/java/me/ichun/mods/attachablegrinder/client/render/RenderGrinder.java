@@ -2,19 +2,19 @@ package me.ichun.mods.attachablegrinder.client.render;
 
 import me.ichun.mods.attachablegrinder.common.Grinder;
 import me.ichun.mods.attachablegrinder.common.entity.EntityGrinder;
+import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.Tessellator;
-import net.minecraft.client.renderer.VertexBuffer;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.entity.monster.AbstractSkeleton;
 import net.minecraft.entity.monster.EntityCreeper;
-import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.EntityWitherSkeleton;
 import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.monster.SkeletonType;
 import net.minecraft.entity.passive.EntityChicken;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityPig;
@@ -40,7 +40,7 @@ public class RenderGrinder extends Render<EntityGrinder>
                 return;
             }
             Tessellator tessellator = Tessellator.getInstance();
-            VertexBuffer vertexbuffer = tessellator.getBuffer();
+            BufferBuilder bufferbuilder = tessellator.getBuffer();
 
             GlStateManager.pushMatrix();
             GlStateManager.enableRescaleNormal();
@@ -79,10 +79,10 @@ public class RenderGrinder extends Render<EntityGrinder>
                 yOffset = 2.52F;
                 scale = 0.45D;
             }
-            else if(grinder.animal instanceof EntitySkeleton)
+            else if(grinder.animal instanceof AbstractSkeleton)
             {
-                EntitySkeleton skele = (EntitySkeleton)grinder.animal;
-                if(skele.getSkeletonType() == SkeletonType.WITHER)
+                AbstractSkeleton skele = (AbstractSkeleton)grinder.animal;
+                if(skele instanceof EntityWitherSkeleton)
                 {
                     yOffset = 3.2F;
                     scale = 0.5D;
@@ -117,23 +117,23 @@ public class RenderGrinder extends Render<EntityGrinder>
             RenderHelper.disableStandardItemLighting();
             if(grinder.animal instanceof EntityCow || grinder.animal instanceof EntityPig || grinder.animal instanceof EntityChicken)
             {
-                renderHorizontal(tessellator, vertexbuffer, -0.5D, -0.495D, -0.5D, Grinder.grinderSides);
+                renderHorizontal(tessellator, bufferbuilder, -0.5D, -0.495D, -0.5D, Grinder.grinderSides);
 
                 float tick = (float)(grinder.ticks % 5) + f1;
 
                 GlStateManager.rotate(-(tick / 5F * 90F), 0.0F, 1.0F, 0.0F);
 
-                renderHorizontal(tessellator, vertexbuffer, -0.5D, -0.5D, -0.5D, Grinder.grinderBlades);
+                renderHorizontal(tessellator, bufferbuilder, -0.5D, -0.5D, -0.5D, Grinder.grinderBlades);
             }
             else
             {
-                renderVertical(tessellator, vertexbuffer, -0.5D, -0.5D, isWitherSkele ? -0.65D : -0.71D, Grinder.grinderSides);
+                renderVertical(tessellator, bufferbuilder, -0.5D, -0.5D, isWitherSkele ? -0.65D : -0.71D, Grinder.grinderSides);
 
                 float tick = (float)(grinder.ticks % 5) + f1;
 
                 GlStateManager.rotate(-(tick / 5F * 90F), 0.0F, 0.0F, 1.0F);
 
-                renderVertical(tessellator, vertexbuffer, -0.5D, -0.5D, isWitherSkele ? -0.655D : -0.715D, Grinder.grinderBlades);
+                renderVertical(tessellator, bufferbuilder, -0.5D, -0.5D, isWitherSkele ? -0.655D : -0.715D, Grinder.grinderBlades);
             }
             GlStateManager.enableLighting();
 
@@ -144,7 +144,7 @@ public class RenderGrinder extends Render<EntityGrinder>
         }
     }
 
-    public void renderVertical(Tessellator tessellator, VertexBuffer vertexbuffer, double p_147734_2_, double p_147734_4_, double p_147734_6_, TextureAtlasSprite p_147734_8_)
+    public void renderVertical(Tessellator tessellator, BufferBuilder bufferbuilder, double p_147734_2_, double p_147734_4_, double p_147734_6_, TextureAtlasSprite p_147734_8_)
     {
         double d3 = (double)p_147734_8_.getInterpolatedU(0.0D * 16.0D);
         double d4 = (double)p_147734_8_.getInterpolatedU(1.0D * 16.0D);
@@ -162,15 +162,15 @@ public class RenderGrinder extends Render<EntityGrinder>
         double d14 = p_147734_4_ + 1.0D;
         double d15 = p_147734_6_ + 1.0D;
 
-        vertexbuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
-        vertexbuffer.pos(d11, d14, d15).tex(d3, d5).endVertex();
-        vertexbuffer.pos(d11, d13, d15).tex(d8, d10).endVertex();
-        vertexbuffer.pos(d12, d13, d15).tex(d4, d6).endVertex();
-        vertexbuffer.pos(d12, d14, d15).tex(d7, d9).endVertex();
+        bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
+        bufferbuilder.pos(d11, d14, d15).tex(d3, d5).endVertex();
+        bufferbuilder.pos(d11, d13, d15).tex(d8, d10).endVertex();
+        bufferbuilder.pos(d12, d13, d15).tex(d4, d6).endVertex();
+        bufferbuilder.pos(d12, d14, d15).tex(d7, d9).endVertex();
         tessellator.draw();
     }
 
-    public void renderHorizontal(Tessellator tessellator, VertexBuffer vertexbuffer, double p_147806_2_, double p_147806_4_, double p_147806_6_, TextureAtlasSprite p_147806_8_)
+    public void renderHorizontal(Tessellator tessellator, BufferBuilder bufferbuilder, double p_147806_2_, double p_147806_4_, double p_147806_6_, TextureAtlasSprite p_147806_8_)
     {
         double d3 = (double)p_147806_8_.getInterpolatedU(0.0D * 16.0D);
         double d4 = (double)p_147806_8_.getInterpolatedU(1.0D * 16.0D);
@@ -188,11 +188,11 @@ public class RenderGrinder extends Render<EntityGrinder>
         double d14 = p_147806_6_ + 0.0D;
         double d15 = p_147806_6_ + 1.0D;
 
-        vertexbuffer.begin(7, DefaultVertexFormats.POSITION_TEX);
-        vertexbuffer.pos(d12, d13, d15).tex(d4, d6).endVertex();
-        vertexbuffer.pos(d12, d13, d14).tex(d7, d9).endVertex();
-        vertexbuffer.pos(d11, d13, d14).tex(d3, d5).endVertex();
-        vertexbuffer.pos(d11, d13, d15).tex(d8, d10).endVertex();
+        bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
+        bufferbuilder.pos(d12, d13, d15).tex(d4, d6).endVertex();
+        bufferbuilder.pos(d12, d13, d14).tex(d7, d9).endVertex();
+        bufferbuilder.pos(d11, d13, d14).tex(d3, d5).endVertex();
+        bufferbuilder.pos(d11, d13, d15).tex(d8, d10).endVertex();
         tessellator.draw();
     }
 
