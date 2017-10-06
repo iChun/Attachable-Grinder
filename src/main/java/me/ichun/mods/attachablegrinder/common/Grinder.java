@@ -27,8 +27,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 //No need for acceptedMinecraftVersions, the iChunUtil range should sort it out.
 @Mod(modid = Grinder.MOD_ID, name = Grinder.MOD_NAME,
         version = Grinder.VERSION,
-        guiFactory = "me.ichun.mods.ichunutil.common.core.config.GenericModGuiFactory",
-        dependencies = "required-after:ichunutil@[" + iChunUtil.VERSION_MAJOR +".0.1," + (iChunUtil.VERSION_MAJOR + 1) + ".0.0)",
+        guiFactory = iChunUtil.GUI_CONFIG_FACTORY,
+        dependencies = "required-after:ichunutil@[" + iChunUtil.VERSION_MAJOR +".0.2," + (iChunUtil.VERSION_MAJOR + 1) + ".0.0)",
         acceptableRemoteVersions = "[" + iChunUtil.VERSION_MAJOR +".0.0," + iChunUtil.VERSION_MAJOR + ".1.0)",
         acceptedMinecraftVersions = iChunUtil.MC_VERSION_RANGE
 )
