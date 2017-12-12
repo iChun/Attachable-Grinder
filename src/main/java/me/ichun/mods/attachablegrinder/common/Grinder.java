@@ -24,7 +24,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-//No need for acceptedMinecraftVersions, the iChunUtil range should sort it out.
 @Mod(modid = Grinder.MOD_ID, name = Grinder.MOD_NAME,
         version = Grinder.VERSION,
         guiFactory = iChunUtil.GUI_CONFIG_FACTORY,
