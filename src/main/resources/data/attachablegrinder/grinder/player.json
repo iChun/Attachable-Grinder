@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:player",
+  "loot_table": "attachablegrinder:entities/player",
+  "explosion_bonus": 1.5,
+  "orientation_is_vertical": true,
+  "flip": false,
+  "render_scale": 0.45,
+  "offset_up": 1.275,
+  "offset_left": 0.0,
+  "offset_front": 0.1275
+}

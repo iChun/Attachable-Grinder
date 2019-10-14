@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:cave_spider",
+  "loot_table": "attachablegrinder:entities/cave_spider",
+  "explosion_bonus": 0.0,
+  "orientation_is_vertical": false,
+  "flip": false,
+  "render_scale": 0.315,
+  "offset_up": 0.5862499999999999,
+  "offset_left": 0.0,
+  "offset_front": -0.4375
+}

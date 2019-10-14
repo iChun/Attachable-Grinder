@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:cow",
+  "loot_table": "attachablegrinder:entities/cow",
+  "explosion_bonus": 0.0,
+  "orientation_is_vertical": false,
+  "flip": false,
+  "render_scale": 0.6,
+  "offset_up": 1.4,
+  "offset_left": 0.0,
+  "offset_front": 0.0
+}

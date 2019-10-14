@@ -1,0 +1,36 @@
+{
+  "item.attachablegrinder.grinder": "Kværner",
+  "death.attack.grinder": "%s sad på en kværner",
+
+  "config.attachablegrinder.cat.grinderEnabledOn.name": "Tillad mobs",
+
+  "config.attachablegrinder.cat.grinderEnabledOn.desc": "Mobs kværner er tilladt",
+
+  "config.attachablegrinder.prop.frequency.name": "Kværnerings frekvens",
+  "config.attachablegrinder.prop.tossMultiplier.name": "Kast multiplikator",
+  "config.attachablegrinder.prop.grinderYield.name": "Kværnerens minimum udbytte",
+  "config.attachablegrinder.prop.randomExtraYield.name": "Kværnerens maximum ekstra udbytte",
+  "config.attachablegrinder.prop.tossPower.name": "Kaste power",
+  "config.attachablegrinder.prop.explosionMagnitude.name": "Kværener eksplosion størrelsesorden",
+  "config.attachablegrinder.prop.allowPig.name": "Tillad grise",
+  "config.attachablegrinder.prop.allowCow.name": "Tillad køer",
+  "config.attachablegrinder.prop.allowChicken.name": "Tillad kyllinger",
+  "config.attachablegrinder.prop.allowZombie.name": "Tillad zombier",
+  "config.attachablegrinder.prop.allowCreeper.name": "Tillad creepers",
+  "config.attachablegrinder.prop.allowSkeleton.name": "Tillad skeletter",
+  "config.attachablegrinder.prop.allowPlayer.name": "Tillad spillere",
+
+  "config.attachablegrinder.prop.frequency.desc": "Antallet af ticks, indtil den næste decharge. Lavere = hurtigere. # 20 ticks = 1 sekund. Standard: 100 (5 sekunder)",
+  "config.attachablegrinder.prop.tossMultiplier.desc": "Multiplikator, der ganges mod kaste Power \nDefault:. 4.",
+  "config.attachablegrinder.prop.grinderYield.desc": "Hver kværner vil give mindst dette antal gange, før de eksploderer \nsetp til 0 for uendelig \nDefault: 8.",
+  "config.attachablegrinder.prop.randomExtraYield.desc": "Hver kværner har en minimal chance for at give det mange gange \nDefault:. 8.",
+  "config.attachablegrinder.prop.tossPower.desc": "Effekt ved hvilken dråben bliver kastet fra pøbelen \nDefault: 5.",
+  "config.attachablegrinder.prop.explosionMagnitude.desc": "Omfanget af eksplosion forårsaget af mislykkedes kværninger. Standard slyngplante eksplosion størrelsesorden er 300 \nDefault: 150",
+  "config.attachablegrinder.prop.allowPig.desc": "Tillad kværner på grise?",
+  "config.attachablegrinder.prop.allowCow.desc": "Tillad kværner på køer?",
+  "config.attachablegrinder.prop.allowChicken.desc": "Tillad kværner på kyllinger?",
+  "config.attachablegrinder.prop.allowZombie.desc": "Tillad kværner på zombier?",
+  "config.attachablegrinder.prop.allowCreeper.desc": "Tillad kværner på creepers?",
+  "config.attachablegrinder.prop.allowSkeleton.desc": "Tillad kværner på skeletter?",
+  "config.attachablegrinder.prop.allowPlayer.desc": "Tillad kværner på spillere? \nIngen bekymring, intet vil rent faktisk blive slibes ud. Det vil bare holde sig som en ikke-skadelig parasit."
+}

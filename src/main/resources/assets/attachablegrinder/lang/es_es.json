@@ -1,0 +1,36 @@
+{
+  "item.attachablegrinder.grinder": "Grinder",
+  "death.attack.grinder": "%s se sentó en un grinder",
+
+  "config.attachablegrinder.cat.grinderEnabledOn.name": "Mobs activados",
+
+  "config.attachablegrinder.cat.grinderEnabledOn.desc": "El Grinder de mobs está activado",
+
+  "config.attachablegrinder.prop.frequency.name": "Frecuencia de triturado",
+  "config.attachablegrinder.prop.tossMultiplier.name": "Multiplicador de lanzamiento",
+  "config.attachablegrinder.prop.grinderYield.name": "Producción mínima del Grinder",
+  "config.attachablegrinder.prop.randomExtraYield.name": "Producción máxima del Grinder",
+  "config.attachablegrinder.prop.tossPower.name": "Potencia de lanzamiento",
+  "config.attachablegrinder.prop.explosionMagnitude.name": "Magnitud de la explosión",
+  "config.attachablegrinder.prop.allowPig.name": "Permitir cerdos",
+  "config.attachablegrinder.prop.allowCow.name": "Permitir vacas",
+  "config.attachablegrinder.prop.allowChicken.name": "Permitir pollos",
+  "config.attachablegrinder.prop.allowZombie.name": "Permitir zombies",
+  "config.attachablegrinder.prop.allowCreeper.name": "Permitir creepers",
+  "config.attachablegrinder.prop.allowSkeleton.name": "Permitir esqueletos",
+  "config.attachablegrinder.prop.allowPlayer.name": "Permitir jugadores",
+
+  "config.attachablegrinder.prop.frequency.desc": "Número de ticks hasta la siguiente descarga. Más bajo = Masás rápido. # 20 ticks = 1 segundo. Por defecto: 100 (5 segundos)",
+  "config.attachablegrinder.prop.tossMultiplier.desc": "Multiplicador de la potencia de lanzamiento.\nPor defecto: 4",
+  "config.attachablegrinder.prop.grinderYield.desc": "Cada Grinder producirá un número mínimo de veces antes de explotar.\n0 = infinito.\nPor defecto: 8",
+  "config.attachablegrinder.prop.randomExtraYield.desc": "Cada Grinder tiene una posibilidad de producir este número de veces.\nPor defecto: 8",
+  "config.attachablegrinder.prop.tossPower.desc": "Potencia con la que el objeto es lanzado del mob.\nPor defecto: 5",
+  "config.attachablegrinder.prop.explosionMagnitude.desc": "Magnitud de la explosión provocada por el grinder. La explosión de un creeper es 300.\nPor defecto: 150",
+  "config.attachablegrinder.prop.allowPig.desc": "¿Permitir grinders en cerdos?",
+  "config.attachablegrinder.prop.allowCow.desc": "¿Permitir grinders en vacas?",
+  "config.attachablegrinder.prop.allowChicken.desc": "¿Permitir grinders en pollos?",
+  "config.attachablegrinder.prop.allowZombie.desc": "¿Permitir grinders en zombies?",
+  "config.attachablegrinder.prop.allowCreeper.desc": "¿Permitir grinders en creepers?",
+  "config.attachablegrinder.prop.allowSkeleton.desc": "¿Permitir grinders en esqueletos?",
+  "config.attachablegrinder.prop.allowPlayer.desc": "¿Permitir grinders en jugadores?\nNo te preocupes, no se triturará nada. Solo sobresaldrá como un molesto parasito."
+}

@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:chicken",
+  "loot_table": "attachablegrinder:entities/chicken",
+  "explosion_bonus": -0.5,
+  "orientation_is_vertical": false,
+  "flip": false,
+  "render_scale": 0.3,
+  "offset_up": 0.7,
+  "offset_left": 0.0,
+  "offset_front": 0.0
+}

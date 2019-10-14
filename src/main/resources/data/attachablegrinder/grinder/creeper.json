@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:creeper",
+  "loot_table": "attachablegrinder:entities/creeper",
+  "explosion_bonus": 1.5,
+  "orientation_is_vertical": true,
+  "flip": false,
+  "render_scale": 0.45,
+  "offset_up": 0.8,
+  "offset_left": 0.0,
+  "offset_front": 0.1275
+}

@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:trader_llama",
+  "loot_table": "attachablegrinder:entities/trader_llama",
+  "explosion_bonus": 0.0,
+  "orientation_is_vertical": false,
+  "flip": false,
+  "render_scale": 0.7,
+  "offset_up": 1.5,
+  "offset_left": 0.0,
+  "offset_front": 0.0
+}

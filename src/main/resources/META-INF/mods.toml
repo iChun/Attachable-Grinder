@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[28,)" #forge version dep
+issueTrackerURL="https://github.com/iChun/Attachable-Grinder/issues"
+
+[[mods]]
+    modId="attachablegrinder"
+    version="${file.jarVersion}" #mandatory
+    displayName="AttachableGrinder"
+    displayURL="https://ichun.me/mods/attachable-grinder/"
+    authors="iChun"
+    description='''
+    Add an attachable Grinder which works on certain mobs.
+    '''
+
+[[dependencies.attachablegrinder]]
+    modId="forge"
+    mandatory=true
+    versionRange="[28,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.attachablegrinder]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.14.4]"
+    ordering="NONE"
+    side="BOTH"

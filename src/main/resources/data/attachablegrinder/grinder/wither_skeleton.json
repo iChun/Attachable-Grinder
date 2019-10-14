@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:wither_skeleton",
+  "loot_table": "attachablegrinder:entities/wither_skeleton",
+  "explosion_bonus": 0.0,
+  "orientation_is_vertical": true,
+  "flip": false,
+  "render_scale": 0.54,
+  "offset_up": 1.5299999999999998,
+  "offset_left": 0.0,
+  "offset_front": 0.153
+}

@@ -1,0 +1,36 @@
+{
+  "item.attachablegrinder.grinder": "Broyeur",
+  "death.attack.grinder": "%s s'est assis sur un broyeur",
+
+  "config.attachablegrinder.cat.grinderEnabledOn.name": "Monstres activés",
+
+  "config.attachablegrinder.cat.grinderEnabledOn.desc": "Broyeur de monstres activé",
+
+  "config.attachablegrinder.prop.frequency.name": "Fréquence de broyage",
+  "config.attachablegrinder.prop.tossMultiplier.name": "Multiplicateur de lancer",
+  "config.attachablegrinder.prop.grinderYield.name": "Production minimale du broyeur",
+  "config.attachablegrinder.prop.randomExtraYield.name": "Production aléatoire maximale pour le broyeur",
+  "config.attachablegrinder.prop.tossPower.name": "Puissance de lancer",
+  "config.attachablegrinder.prop.explosionMagnitude.name": "Ampleur de l'explosion du broyeur",
+  "config.attachablegrinder.prop.allowPig.name": "Autoriser les cochonsAllow Pigs",
+  "config.attachablegrinder.prop.allowCow.name": "Autoriser les vaches",
+  "config.attachablegrinder.prop.allowChicken.name": "Autoriser les poulets",
+  "config.attachablegrinder.prop.allowZombie.name": "Autoriser les zombies",
+  "config.attachablegrinder.prop.allowCreeper.name": "Autoriser les creepers",
+  "config.attachablegrinder.prop.allowSkeleton.name": "Autoriser les squelettes",
+  "config.attachablegrinder.prop.allowPlayer.name": "Autoriser les joueurs",
+
+  "config.attachablegrinder.prop.frequency.desc": "Nombre de ticks jusqu'à la prochaine décharge. Bas = Rapide. # 20 ticks = 1 seconde. Défaut: 100 (5 secondes)",
+  "config.attachablegrinder.prop.tossMultiplier.desc": "Multiplicateur utilisé avec la puissance de lancer.\nDéfaut: 4",
+  "config.attachablegrinder.prop.grinderYield.desc": "Chaque broyeur expulsera au moins ce nombre d'objets avant d'exploser.\nMettre à 0 pour explusion infinie.\nDéfaut: 8",
+  "config.attachablegrinder.prop.randomExtraYield.desc": "Chaque broyeur a une chance d'expulser ce nombre d'objets en plus.\nDéfaut: 8",
+  "config.attachablegrinder.prop.tossPower.desc": "Puissance avec laquelle l'objet est expulsé du monstre.\nDéfaut: 5",
+  "config.attachablegrinder.prop.explosionMagnitude.desc": "Ampleur de l'explosion causée par l'échec du broyage. Ampleur par défaut d'une explosion de creeper: 300.\nDéfaut: 150",
+  "config.attachablegrinder.prop.allowPig.desc": "Autoriser le broyage des cochons ?",
+  "config.attachablegrinder.prop.allowCow.desc": "Autoriser le broyage des vaches ?",
+  "config.attachablegrinder.prop.allowChicken.desc": "Autoriser le broyage des poulets ?",
+  "config.attachablegrinder.prop.allowZombie.desc": "Autoriser le broyage des zombies ?Allow Grinders on zombies?",
+  "config.attachablegrinder.prop.allowCreeper.desc": "Autoriser le broyage des creepers ?",
+  "config.attachablegrinder.prop.allowSkeleton.desc": "Autoriser le broyage des squelettes ?",
+  "config.attachablegrinder.prop.allowPlayer.desc": "Autoriser le broyage des joueurs ?\nPas d'inquiétude, rien ne sera vraiment broyé et expulsé. Le broyeur sera juste collé comme un parasite inoffensif."
+}

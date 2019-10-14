@@ -1,0 +1,36 @@
+{
+  "item.attachablegrinder.grinder": "그라인더",
+  "death.attack.grinder": "%s에 그라인더가 설치되었습니다",
+
+  "config.attachablegrinder.cat.grinderEnabledOn.name": "몹 활성화",
+
+  "config.attachablegrinder.cat.grinderEnabledOn.desc": "몹그라인더가 활성화 되었습니다",
+
+  "config.attachablegrinder.prop.frequency.name": "Grinding frequency",
+  "config.attachablegrinder.prop.tossMultiplier.name": "Toss Multiplier",
+  "config.attachablegrinder.prop.grinderYield.name": "Grinder's minimum yield",
+  "config.attachablegrinder.prop.randomExtraYield.name": "Grinder's maximum extra yield",
+  "config.attachablegrinder.prop.tossPower.name": "Toss Power",
+  "config.attachablegrinder.prop.explosionMagnitude.name": "Grinder explosion magnitude",
+  "config.attachablegrinder.prop.allowPig.name": "Allow Pigs",
+  "config.attachablegrinder.prop.allowCow.name": "Allow Cows",
+  "config.attachablegrinder.prop.allowChicken.name": "Allow Chickens",
+  "config.attachablegrinder.prop.allowZombie.name": "Allow Zombies",
+  "config.attachablegrinder.prop.allowCreeper.name": "Allow Creepers",
+  "config.attachablegrinder.prop.allowSkeleton.name": "Allow Skeletons",
+  "config.attachablegrinder.prop.allowPlayer.name": "Allow Players",
+
+  "config.attachablegrinder.prop.frequency.desc": "Number of ticks until the next discharge. Lower = faster. # 20 ticks = 1 second. Default: 100 (5 seconds)",
+  "config.attachablegrinder.prop.tossMultiplier.desc": "Multiplier that is multiplied against Toss Power.\nDefault: 4",
+  "config.attachablegrinder.prop.grinderYield.desc": "Each grinder will yield at least this many times before exploding.\nSet to 0 for infinite.\nDefault: 8",
+  "config.attachablegrinder.prop.randomExtraYield.desc": "Each grinder has a minimum chance to yield this many times.\nDefault: 8",
+  "config.attachablegrinder.prop.tossPower.desc": "Power at which the drop is tossed from the mob.\nDefault: 5",
+  "config.attachablegrinder.prop.explosionMagnitude.desc": "Magnitude of explosion caused by failed grinding. Default creeper explosion magnitude is 300.\nDefault: 150",
+  "config.attachablegrinder.prop.allowPig.desc": "Allow Grinders on pigs?",
+  "config.attachablegrinder.prop.allowCow.desc": "Allow Grinders on cows?",
+  "config.attachablegrinder.prop.allowChicken.desc": "Allow Grinders on chickens?",
+  "config.attachablegrinder.prop.allowZombie.desc": "Allow Grinders on zombies?",
+  "config.attachablegrinder.prop.allowCreeper.desc": "Allow Grinders on creepers?",
+  "config.attachablegrinder.prop.allowSkeleton.desc": "Allow Grinders on skeletons?",
+  "config.attachablegrinder.prop.allowPlayer.desc": "Allow Grinders on players?\nDon't worry, nothing will actually be grinded out. It'll just stick like a non-harmful parasite."
+}

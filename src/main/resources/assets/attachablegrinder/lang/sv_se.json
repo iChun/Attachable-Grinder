@@ -1,0 +1,36 @@
+{
+  "item.attachablegrinder.grinder": "Malare",
+  "death.attack.grinder": "%s satt på en malare",
+
+  "config.attachablegrinder.cat.grinderEnabledOn.name": "Tillåtna Mobs",
+
+  "config.attachablegrinder.cat.grinderEnabledOn.desc": "Mobmalare Är aktiverat På",
+
+  "config.attachablegrinder.prop.frequency.name": "Malarfekvens",
+  "config.attachablegrinder.prop.tossMultiplier.name": "Kastfaktor",
+  "config.attachablegrinder.prop.grinderYield.name": "Malarens minimala avkastning",
+  "config.attachablegrinder.prop.randomExtraYield.name": "Malarens maximala avkastning",
+  "config.attachablegrinder.prop.tossPower.name": "Kastkraft",
+  "config.attachablegrinder.prop.explosionMagnitude.name": "Malarexplosionsmängd",
+  "config.attachablegrinder.prop.allowPig.name": "Tillåt Grisar",
+  "config.attachablegrinder.prop.allowCow.name": "Tillåt Kossor",
+  "config.attachablegrinder.prop.allowChicken.name": "Tillåt Kycklingar",
+  "config.attachablegrinder.prop.allowZombie.name": "Tillåt Zombies",
+  "config.attachablegrinder.prop.allowCreeper.name": "Tillåt Creepers",
+  "config.attachablegrinder.prop.allowSkeleton.name": "Tillåt Skelett",
+  "config.attachablegrinder.prop.allowPlayer.name": "Tillåt Spelare",
+
+  "config.attachablegrinder.prop.frequency.desc": "Antal ticks till nästa urladdning. Lägre = snabbare. # 20 ticks = 1 sekund. Standardvärde: 100 (5 sekunder)",
+  "config.attachablegrinder.prop.tossMultiplier.desc": "Faktor som multipliceras mot kastkraften.\nStandardvärde: 4",
+  "config.attachablegrinder.prop.grinderYield.desc": "Alla malare kommer att ge avkastning följande antal gånger innan explosion.\nSätt till 0 för oändlighet.\nStandardvärde: 8",
+  "config.attachablegrinder.prop.randomExtraYield.desc": "Varje malare kommer att ge avkastning minst så här många gånger.\nStandardvärde: 8",
+  "config.attachablegrinder.prop.tossPower.desc": "Kraften som objekten kastas ifrån moben med.\nStandardvärde: 5",
+  "config.attachablegrinder.prop.explosionMagnitude.desc": "Explosionsstyrka, vilket som sker då malaren exploderar. Creepers har 300.\nStandardvärde: 150",
+  "config.attachablegrinder.prop.allowPig.desc": "Tillåt malare på grisar?",
+  "config.attachablegrinder.prop.allowCow.desc": "Tillåt malare på kossor?",
+  "config.attachablegrinder.prop.allowChicken.desc": "Tillåt malare på kycklingar?",
+  "config.attachablegrinder.prop.allowZombie.desc": "Tilllåt malare på zombies?",
+  "config.attachablegrinder.prop.allowCreeper.desc": "Tillåt malare på creepers?",
+  "config.attachablegrinder.prop.allowSkeleton.desc": "Tillåt malare på skelett?",
+  "config.attachablegrinder.prop.allowPlayer.desc": "Tillåt malare på spelare?\noroa dig inte, inget kommer att malas ut. Den bara sätter sig fast som ett ofarligt skadedjur."
+}

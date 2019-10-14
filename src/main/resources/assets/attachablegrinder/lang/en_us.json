@@ -1,0 +1,22 @@
+{
+  "item.attachablegrinder.grinder": "Attachable Grinder",
+  "death.attack.grinder": "%s sat on a grinder",
+
+  "config.attachablegrinder.prop.frequency.name": "Grinding frequency",
+  "config.attachablegrinder.prop.tossMultiplier.name": "Toss Multiplier",
+  "config.attachablegrinder.prop.grinderYield.name": "Grinder's minimum yield",
+  "config.attachablegrinder.prop.randomExtraYield.name": "Grinder's maximum extra yield",
+  "config.attachablegrinder.prop.tossPower.name": "Toss Power",
+  "config.attachablegrinder.prop.explosionMagnitude.name": "Grinder explosion magnitude",
+  "config.attachablegrinder.prop.disabledEntities.name": "Disabled Grinder Entities",
+
+  "config.attachablegrinder.prop.frequency.desc": "Number of ticks until the next discharge. Lower = faster. # 20 ticks = 1 second. Default: 100 (5 seconds)",
+  "config.attachablegrinder.prop.tossMultiplier.desc": "Multiplier that is multiplied against Toss Power.\nDefault: 4",
+  "config.attachablegrinder.prop.grinderYield.desc": "Each grinder will yield at least this many times before exploding.\nSet to 0 for infinite.\nDefault: 8",
+  "config.attachablegrinder.prop.randomExtraYield.desc": "Each grinder has a minimum chance to yield this many times.\nDefault: 8",
+  "config.attachablegrinder.prop.tossPower.desc": "Power at which the drop is tossed from the mob.\nDefault: 5",
+  "config.attachablegrinder.prop.explosionMagnitude.desc": "Magnitude of explosion caused by failed grinding. Default creeper explosion magnitude is 300.\nDefault: 150",
+  "config.attachablegrinder.prop.disabledEntities.desc": "Entities to disable from having the attachable grinder attached. By resource name (eg: minecraft:pig)",
+
+  "entity.attachablegrinder.grinder": "Attachable Grinder"
+}

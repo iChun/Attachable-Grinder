@@ -1,0 +1,36 @@
+{
+  "item.attachablegrinder.grinder": "Tritacarne",
+  "death.attack.grinder": "%s si è seduto su un tritacarne",
+
+  "config.attachablegrinder.cat.grinderEnabledOn.name": "Abilita Mobs",
+
+  "config.attachablegrinder.cat.grinderEnabledOn.desc": "Mobs Grinder è settato su On",
+
+  "config.attachablegrinder.prop.frequency.name": "Frequenza di tritatura",
+  "config.attachablegrinder.prop.tossMultiplier.name": "Multipli di drop",
+  "config.attachablegrinder.prop.grinderYield.name": "Produzione minima del tritacane",
+  "config.attachablegrinder.prop.randomExtraYield.name": "Produzione massima di extra",
+  "config.attachablegrinder.prop.tossPower.name": "Potenza di rilascio",
+  "config.attachablegrinder.prop.explosionMagnitude.name": "Magnetudine dell'esposione del tritacarne",
+  "config.attachablegrinder.prop.allowPig.name": "Consenti i maiali",
+  "config.attachablegrinder.prop.allowCow.name": "Consenti le mucche",
+  "config.attachablegrinder.prop.allowChicken.name": "Consenti le galline",
+  "config.attachablegrinder.prop.allowZombie.name": "Consenti gli zombie",
+  "config.attachablegrinder.prop.allowCreeper.name": "Consenti i Creeper",
+  "config.attachablegrinder.prop.allowSkeleton.name": "Consenti gli scheletri",
+  "config.attachablegrinder.prop.allowPlayer.name": "Consenti i giocatori",
+
+  "config.attachablegrinder.prop.frequency.desc": "Numero di tick prima del rilascio successivo. Piu' e' basso = piu' e' veloce. # 20 tick = 1 secondo. Default: 100 (5 secondi)",
+  "config.attachablegrinder.prop.tossMultiplier.desc": "Numero che viene moltiplicato da Multipli di drop.\nDefault: 4",
+  "config.attachablegrinder.prop.grinderYield.desc": "Ogni tritacarne fa al massimo questo numero di tritature prima di esplodere.\nImpostandolo a 0 durera' all'infinito \nDefault: 8",
+  "config.attachablegrinder.prop.randomExtraYield.desc": "Ogni tritacarne ha un minimo di tritature pari a questo numero.\nDefault: 8",
+  "config.attachablegrinder.prop.tossPower.desc": "Potenza con cui il drop viene espulso dal mob.\nDefault: 5",
+  "config.attachablegrinder.prop.explosionMagnitude.desc": "Magnietudine dell'esplosione se fallisce. Quella del creeper di base e' 300.\nDefault: 150",
+  "config.attachablegrinder.prop.allowPig.desc": "Consentire il tritacarne sulle maiale?",
+  "config.attachablegrinder.prop.allowCow.desc": "Consentire il tritacarne sulle mucche?",
+  "config.attachablegrinder.prop.allowChicken.desc": "Consentire il tritacarne sui polli?",
+  "config.attachablegrinder.prop.allowZombie.desc": "Consentire il tritacarne sugli zombie?",
+  "config.attachablegrinder.prop.allowCreeper.desc": "Consentire il tritacarne sui creeper?",
+  "config.attachablegrinder.prop.allowSkeleton.desc": "Consentire il tritacarne sugli scheletri?",
+  "config.attachablegrinder.prop.allowPlayer.desc": "Consentire il tritacarne sui giocatori?\nNon ti preoccupare, nulla verra' tritato dai giocatori. E' solo un parassita innocuo."
+}

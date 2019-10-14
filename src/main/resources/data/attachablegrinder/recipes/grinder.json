@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X#X",
+    "#R#",
+    "X#X"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:iron_ingot"
+    },
+    "X": {
+      "item": "minecraft:brick"
+    },
+    "R": {
+      "item": "minecraft:grindstone"
+    }
+  },
+  "result": {
+    "item": "attachablegrinder:grinder"
+  }
+}
+ 

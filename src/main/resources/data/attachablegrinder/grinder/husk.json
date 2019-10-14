@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:husk",
+  "loot_table": "attachablegrinder:entities/husk",
+  "explosion_bonus": 0.0,
+  "orientation_is_vertical": true,
+  "flip": false,
+  "render_scale": 0.478125,
+  "offset_up": 1.3546874999999998,
+  "offset_left": 0.0,
+  "offset_front": 0.13546875
+}

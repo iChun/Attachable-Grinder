@@ -1,0 +1,36 @@
+{
+  "item.attachablegrinder.grinder": "Grinder",
+  "death.attack.grinder": "%s saß auf einem Grinder",
+
+  "config.attachablegrinder.cat.grinderEnabledOn.name": "Mobs aktiviert",
+
+  "config.attachablegrinder.cat.grinderEnabledOn.desc": "Der Mob-Grinder ist aktiviert",
+
+  "config.attachablegrinder.prop.frequency.name": "Grinding-Frequenz",
+  "config.attachablegrinder.prop.tossMultiplier.name": "Wurfmultiplikator",
+  "config.attachablegrinder.prop.grinderYield.name": "Minimale Ausbeute des Grinders",
+  "config.attachablegrinder.prop.randomExtraYield.name": "Maximale zusätzliche Ausbeute des Grinders",
+  "config.attachablegrinder.prop.tossPower.name": "Wurfkraft",
+  "config.attachablegrinder.prop.explosionMagnitude.name": "Explosionsstärke des Grinders",
+  "config.attachablegrinder.prop.allowPig.name": "Erlaube Schweine",
+  "config.attachablegrinder.prop.allowCow.name": "Erlaube Kühe",
+  "config.attachablegrinder.prop.allowChicken.name": "Erlaube Hühner",
+  "config.attachablegrinder.prop.allowZombie.name": "Erlaube Zombies",
+  "config.attachablegrinder.prop.allowCreeper.name": "Erlaube Creeper",
+  "config.attachablegrinder.prop.allowSkeleton.name": "Erlaube Skelette",
+  "config.attachablegrinder.prop.allowPlayer.name": "Erlaube Spieler",
+
+  "config.attachablegrinder.prop.frequency.desc": "Ticknummer bis zur nächsten Entladung. Weniger = schneller. # 20 Ticks = 1 Sekunde. Standard: 100 (5 Sekunden)",
+  "config.attachablegrinder.prop.tossMultiplier.desc": "Multiplikator, der mit der Wurfkraft multipliziert wird..\nStandard: 4",
+  "config.attachablegrinder.prop.grinderYield.desc": "Jeder Grinder wird mindestens so oft auswerfen.\nSetze auf 0 für unendlich.\nStandard: 8",
+  "config.attachablegrinder.prop.randomExtraYield.desc": "Jeder Grinder hat eine minimale Chance, so oft auszuwerfen.\nStandard: 8",
+  "config.attachablegrinder.prop.tossPower.desc": "Kraft, mit der der Drop vom Mob weggeworfen wird.\nStandard: 5",
+  "config.attachablegrinder.prop.explosionMagnitude.desc": "Stärke der Explosion verursacht durch fehlgeschlagenes grinden. Die Standardstärke von Creepern beträgt 300.\nStandard: 150",
+  "config.attachablegrinder.prop.allowPig.desc": "Erlaube Grinder auf Schweinen?",
+  "config.attachablegrinder.prop.allowCow.desc": "Erlaube Grinder auf Kühen?",
+  "config.attachablegrinder.prop.allowChicken.desc": "Erlaube Grinder auf Hühnern?",
+  "config.attachablegrinder.prop.allowZombie.desc": "Erlaube Grinder auf Zombies?",
+  "config.attachablegrinder.prop.allowCreeper.desc": "Erlaube Grinder auf Creepern?",
+  "config.attachablegrinder.prop.allowSkeleton.desc": "Erlaube Grinder auf Skeletten?",
+  "config.attachablegrinder.prop.allowPlayer.desc": "Erlaube Grinder auf Spielern?\nKeine Angst, nichts wird gegrindet. Es wird nur wie ein ungefährlicher Parasit drankleben.."
+}
