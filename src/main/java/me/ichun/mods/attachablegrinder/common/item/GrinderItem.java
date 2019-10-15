@@ -4,7 +4,6 @@ import me.ichun.mods.attachablegrinder.common.AttachableGrinder;
 import me.ichun.mods.attachablegrinder.common.entity.GrinderEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
