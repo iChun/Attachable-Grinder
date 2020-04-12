@@ -36,14 +36,14 @@ public class GrinderLootGen
             gen.addProvider(new LootTableGen(gen,
                     new LootTableGen.Entities()
                             .add(EntityType.PIG, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.PORKCHOP)
                                                         .acceptFunction(Smelt.func_215953_b()
-                                                                .acceptCondition(EntityHasProperty.builder(LootContext.EntityTarget.THIS, EntityLootTables.field_218586_a))))));
+                                                                .acceptCondition(EntityHasProperty.builder(LootContext.EntityTarget.THIS, EntityLootTables.ON_FIRE))))));
                             })
                             .add(EntityType.CHICKEN, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.FEATHER)
                                                 )
@@ -51,7 +51,7 @@ public class GrinderLootGen
                                 );
                             })
                             .add(EntityType.ZOMBIE, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.ROTTEN_FLESH)
                                                 )
@@ -59,7 +59,7 @@ public class GrinderLootGen
                                 );
                             })
                             .add(EntityType.CREEPER, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.GUNPOWDER)
                                                 )
@@ -67,7 +67,7 @@ public class GrinderLootGen
                                 );
                             })
                             .add(EntityType.SKELETON, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.BONE_MEAL)
                                                 )
@@ -75,7 +75,7 @@ public class GrinderLootGen
                                 );
                             })
                             .add(EntityType.WITHER_SKELETON, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.BONE_MEAL)
                                                         .weight(4)
@@ -86,19 +86,19 @@ public class GrinderLootGen
                                         ));
                             })
                             .add(EntityType.COW, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.BEEF)
                                                         .weight(4)
                                                         .acceptFunction(Smelt.func_215953_b()
-                                                                .acceptCondition(EntityHasProperty.builder(LootContext.EntityTarget.THIS, EntityLootTables.field_218586_a))))
+                                                                .acceptCondition(EntityHasProperty.builder(LootContext.EntityTarget.THIS, EntityLootTables.ON_FIRE))))
                                                 .addEntry(ItemLootEntry.builder(Items.LEATHER)
                                                         .weight(1)
                                                 )
                                         ));
                             })
                             .add(EntityType.CAVE_SPIDER, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.STRING)
                                                 )
@@ -106,7 +106,7 @@ public class GrinderLootGen
                                 );
                             })
                             .add(EntityType.SPIDER, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.STRING)
                                                 )
@@ -114,7 +114,7 @@ public class GrinderLootGen
                                 );
                             })
                             .add(EntityType.DROWNED, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.ROTTEN_FLESH)
                                                 )
@@ -122,7 +122,7 @@ public class GrinderLootGen
                                 );
                             })
                             .add(EntityType.ENDERMAN, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.ENDER_PEARL)
                                                 )
@@ -130,7 +130,7 @@ public class GrinderLootGen
                                 );
                             })
                             .add(EntityType.HUSK, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.ROTTEN_FLESH)
                                                 )
@@ -138,7 +138,7 @@ public class GrinderLootGen
                                 );
                             })
                             .add(EntityType.LLAMA, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.LEATHER)
                                                 )
@@ -146,7 +146,7 @@ public class GrinderLootGen
                                 );
                             })
                             .add(EntityType.TRADER_LLAMA, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.LEATHER)
                                                 )
@@ -154,19 +154,19 @@ public class GrinderLootGen
                                 );
                             })
                             .add(EntityType.MOOSHROOM, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.BEEF)
                                                         .weight(4)
                                                         .acceptFunction(Smelt.func_215953_b()
-                                                                .acceptCondition(EntityHasProperty.builder(LootContext.EntityTarget.THIS, EntityLootTables.field_218586_a))))
+                                                                .acceptCondition(EntityHasProperty.builder(LootContext.EntityTarget.THIS, EntityLootTables.ON_FIRE))))
                                                 .addEntry(ItemLootEntry.builder(Items.LEATHER)
                                                         .weight(1)
                                                 )
                                         ));
                             })
                             .add(EntityType.STRAY, (tables, type) -> {
-                                tables.func_218582_a(type, LootTable.builder()
+                                tables.registerLootTable(type, LootTable.builder()
                                         .addLootPool(LootPool.builder().rolls(ConstantRange.of(1))
                                                 .addEntry(ItemLootEntry.builder(Items.BONE_MEAL)
                                                 )

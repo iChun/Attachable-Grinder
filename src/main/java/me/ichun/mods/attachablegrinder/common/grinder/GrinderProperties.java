@@ -17,12 +17,6 @@ public class GrinderProperties extends ResourceReloadListener<GrinderProperties.
         super("grinder", GrinderProperties.Properties.class);
     }
 
-    @Override
-    protected void apply(Map<ResourceLocation, JsonObject> json, IResourceManager iResourceManager, IProfiler iProfiler)
-    {
-        super.apply(json, iResourceManager, iProfiler);
-    }
-
     public Properties getFor(@Nonnull ResourceLocation key)
     {
         for(Map.Entry<ResourceLocation, Properties> entry : objects.entrySet())

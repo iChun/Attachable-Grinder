@@ -1,26 +1,28 @@
 package me.ichun.mods.attachablegrinder.client.render;
 
-import com.mojang.blaze3d.platform.GLX;
-import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
 import me.ichun.mods.attachablegrinder.common.AttachableGrinder;
 import me.ichun.mods.attachablegrinder.common.entity.GrinderEntity;
 import me.ichun.mods.attachablegrinder.common.grinder.GrinderProperties;
 import me.ichun.mods.ichunutil.client.render.LatchedEntityRenderer;
-import net.minecraft.client.renderer.BufferBuilder;
-import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.*;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.LivingRenderer;
-import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Pose;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class GrinderRenderer extends LatchedEntityRenderer<GrinderEntity>
 {
     public static final ResourceLocation SIDES = new ResourceLocation(AttachableGrinder.MOD_ID, "textures/model/grinder_ent_sides.png");
     public static final ResourceLocation BLADES = new ResourceLocation(AttachableGrinder.MOD_ID, "textures/model/grinder_ent_blade.png");
+    public static final RenderType RENDER_TYPE_SIDE = RenderType.getEntityCutoutNoCull(SIDES);
+    public static final RenderType RENDER_TYPE_BLADE = RenderType.getEntityCutoutNoCull(BLADES);
 
     public GrinderRenderer(EntityRendererManager manager)
     {
@@ -28,7 +30,7 @@ public class GrinderRenderer extends LatchedEntityRenderer<GrinderEntity>
     }
 
     @Override
-    public void doRender(GrinderEntity grinder, double x, double y, double z, float entityYaw, float partialTick)
+    public void render(GrinderEntity grinder, float entityYaw, float partialTick, MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn)
     {
         GrinderProperties.Properties properties = grinder.properties;
         if(properties != null) //properties are only set when the entity has a parent.
@@ -39,108 +41,102 @@ public class GrinderRenderer extends LatchedEntityRenderer<GrinderEntity>
                 return;
             }
 
-            GlStateManager.normal3f(0.0F, 0.0F, 1.0F); //fucking nameplates fuck up the normal without resetting.
-
             //we need the parent's rendering position, not the grinder's
+            //we need to get the camera position. Get the current active render info
+            Vec3d vec3d = this.renderManager.info.getProjectedView();
+            double camX = vec3d.getX();
+            double camY = vec3d.getY();
+            double camZ = vec3d.getZ();
+
             //taken from EntityRendererManager
-            double d0 = MathHelper.lerp((double)partialTick, grinder.parent.lastTickPosX, grinder.parent.posX);
-            double d1 = MathHelper.lerp((double)partialTick, grinder.parent.lastTickPosY, grinder.parent.posY);
-            double d2 = MathHelper.lerp((double)partialTick, grinder.parent.lastTickPosZ, grinder.parent.posZ);
+            double d0 = MathHelper.lerp((double)partialTick, grinder.parent.lastTickPosX, grinder.parent.getPosX());
+            double d1 = MathHelper.lerp((double)partialTick, grinder.parent.lastTickPosY, grinder.parent.getPosY());
+            double d2 = MathHelper.lerp((double)partialTick, grinder.parent.lastTickPosZ, grinder.parent.getPosZ());
             float f = MathHelper.lerp(partialTick, grinder.parent.prevRotationYaw, grinder.parent.rotationYaw);
-            int i = grinder.parent.getBrightnessForRender();
-            if (grinder.parent.isBurning()) {
-                i = 15728880;
-            }
 
-            int j = i % 65536;
-            int k = i / 65536;
-            GLX.glMultiTexCoord2f(GLX.GL_TEXTURE1, (float)j, (float)k);
-            GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-            double px = d0 - renderManager.renderPosX;
-            double py = d1 - renderManager.renderPosY;
-            double pz = d2 - renderManager.renderPosZ;
+            matrixStackIn.pop(); // pop our current translate
 
-            //set the brightness to match the parent
-            EntityRenderer parentRenderer = renderManager.getRenderer(grinder.parent);
-            boolean resetBrightness = false;
-            if(parentRenderer instanceof LivingRenderer)
-            {
-                resetBrightness = ((LivingRenderer)parentRenderer).setDoRenderBrightness(grinder.parent, partialTick);
-            }
+            //      this.renderManager.renderEntityStatic(entityIn, d0 - camX, d1 - camY, d2 - camZ, f, partialTicks, matrixStackIn, bufferIn, this.renderManager.getPackedLight(entityIn, partialTicks));
+            int parentPackedLight = this.renderManager.getPackedLight(grinder.parent, partialTick);
+            Vec3d renderOffset = this.getRenderOffset(grinder, partialTick);
+            double pX = d0 - camX + renderOffset.getX();
+            double pY = d1 - camY + renderOffset.getY();
+            double pZ = d2 - camZ + renderOffset.getZ();
 
             //we can render
-            GlStateManager.disableCull();
+            matrixStackIn.push(); // push to get to our entity's position
+            matrixStackIn.translate(pX, pY, pZ); //translate to our parent.
 
-            GlStateManager.pushMatrix();
-            GlStateManager.translated(px, py, pz);
-
-            float renderYaw = MathHelper.func_219805_h(partialTick, grinder.parent.prevRenderYawOffset, grinder.parent.renderYawOffset);
-            GlStateManager.rotatef(180.0F - renderYaw, 0.0F, 1.0F, 0.0F);
+            float renderYaw = MathHelper.interpolateAngle(partialTick, grinder.parent.prevRenderYawOffset, grinder.parent.renderYawOffset);
+            matrixStackIn.rotate(Vector3f.YP.rotationDegrees(180.0F - renderYaw));
 
             //do border
-            GlStateManager.pushMatrix();
+            matrixStackIn.push();
 
-            GlStateManager.translated(-properties.offsetLeft, properties.offsetUp, -properties.offsetFront);
+            matrixStackIn.translate(-properties.offsetLeft, properties.offsetUp, -properties.offsetFront);
             if(!properties.isVertical)
             {
-                GlStateManager.rotatef(-90F, 1.0F, 0.0F, 0.0F);
+                matrixStackIn.rotate(Vector3f.XP.rotationDegrees(-90F));
             }
             if(properties.renderScale != 1D && properties.renderScale > 0D)
             {
-                GlStateManager.scaled(properties.renderScale, properties.renderScale, properties.renderScale);
+                matrixStackIn.scale((float)properties.renderScale, (float)properties.renderScale, (float)properties.renderScale);
             }
 
-            bindTexture(SIDES);
+            IVertexBuilder ivertexbuilder = bufferIn.getBuffer(RENDER_TYPE_SIDE);
+            MatrixStack.Entry matrixstack$entry = matrixStackIn.getLast();
+            Matrix4f matrix4f = matrixstack$entry.getMatrix();
+            Matrix3f matrix3f = matrixstack$entry.getNormal();
 
-            Tessellator tessellator = Tessellator.getInstance();
-            BufferBuilder bufferbuilder = tessellator.getBuffer();
-            bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
-            bufferbuilder.pos(-0.5D, -0.5D, 0D).tex(0D, 0D).endVertex();
-            bufferbuilder.pos(+0.5D, -0.5D, 0D).tex(1D, 0D).endVertex();
-            bufferbuilder.pos(+0.5D, +0.5D, 0D).tex(1D, 1D).endVertex();
-            bufferbuilder.pos(-0.5D, +0.5D, 0D).tex(0D, 1D).endVertex();
-            tessellator.draw();
+            ivertexbuilder.pos(matrix4f, -0.5F, -0.5F, 0F).color(255, 255, 255, 255).tex(0F, 0F).overlay(OverlayTexture.NO_OVERLAY).lightmap(parentPackedLight).normal(matrix3f, 0.0F, 0.0F, 1.0F).endVertex();
+            ivertexbuilder.pos(matrix4f, +0.5F, -0.5F, 0F).color(255, 255, 255, 255).tex(1F, 0F).overlay(OverlayTexture.NO_OVERLAY).lightmap(parentPackedLight).normal(matrix3f, 0.0F, 0.0F, 1.0F).endVertex();
+            ivertexbuilder.pos(matrix4f, +0.5F, +0.5F, 0F).color(255, 255, 255, 255).tex(1F, 1F).overlay(OverlayTexture.NO_OVERLAY).lightmap(parentPackedLight).normal(matrix3f, 0.0F, 0.0F, 1.0F).endVertex();
+            ivertexbuilder.pos(matrix4f, -0.5F, +0.5F, 0F).color(255, 255, 255, 255).tex(0F, 1F).overlay(OverlayTexture.NO_OVERLAY).lightmap(parentPackedLight).normal(matrix3f, 0.0F, 0.0F, 1.0F).endVertex();
 
-            GlStateManager.popMatrix();
+            matrixStackIn.pop();
             //end do border
 
-            GlStateManager.translated(-properties.offsetLeft, properties.offsetUp * (properties.flip ? 1.001D : 0.999D), -properties.offsetFront);
+            matrixStackIn.translate(-properties.offsetLeft, properties.offsetUp * (properties.flip ? 1.001D : 0.999D), -properties.offsetFront);
 
             if(!properties.isVertical)
             {
-                GlStateManager.rotatef(-90F, 1.0F, 0.0F, 0.0F);
+                matrixStackIn.rotate(Vector3f.XP.rotationDegrees(-90F));
             }
 
             float tick = (grinder.ticks + partialTick) / 5F;
-            GlStateManager.rotatef(-(tick * 90F), 0.0F, 0.0F, 1.0F);
+            matrixStackIn.rotate(Vector3f.ZP.rotationDegrees(-(tick * 90F)));
 
             if(properties.renderScale != 1D && properties.renderScale > 0D)
             {
-                GlStateManager.scaled(properties.renderScale, properties.renderScale, properties.renderScale);
+                matrixStackIn.scale((float)properties.renderScale, (float)properties.renderScale, (float)properties.renderScale);
             }
 
-            bindTexture(BLADES);
+            ivertexbuilder = bufferIn.getBuffer(RENDER_TYPE_BLADE);
+            matrixstack$entry = matrixStackIn.getLast();
+            matrix4f = matrixstack$entry.getMatrix();
+            matrix3f = matrixstack$entry.getNormal();
 
-            tessellator = Tessellator.getInstance();
-            bufferbuilder = tessellator.getBuffer();
-            bufferbuilder.begin(7, DefaultVertexFormats.POSITION_TEX);
-            bufferbuilder.pos(-0.5D, -0.5D, 0D).tex(0D, 0D).endVertex();
-            bufferbuilder.pos(+0.5D, -0.5D, 0D).tex(1D, 0D).endVertex();
-            bufferbuilder.pos(+0.5D, +0.5D, 0D).tex(1D, 1D).endVertex();
-            bufferbuilder.pos(-0.5D, +0.5D, 0D).tex(0D, 1D).endVertex();
-            tessellator.draw();
+            ivertexbuilder.pos(matrix4f, -0.5F, -0.5F, 0F).color(255, 255, 255, 255).tex(0F, 0F).overlay(OverlayTexture.NO_OVERLAY).lightmap(parentPackedLight).normal(matrix3f, 0.0F, 0.0F, 1.0F).endVertex();
+            ivertexbuilder.pos(matrix4f, +0.5F, -0.5F, 0F).color(255, 255, 255, 255).tex(1F, 0F).overlay(OverlayTexture.NO_OVERLAY).lightmap(parentPackedLight).normal(matrix3f, 0.0F, 0.0F, 1.0F).endVertex();
+            ivertexbuilder.pos(matrix4f, +0.5F, +0.5F, 0F).color(255, 255, 255, 255).tex(1F, 1F).overlay(OverlayTexture.NO_OVERLAY).lightmap(parentPackedLight).normal(matrix3f, 0.0F, 0.0F, 1.0F).endVertex();
+            ivertexbuilder.pos(matrix4f, -0.5F, +0.5F, 0F).color(255, 255, 255, 255).tex(0F, 1F).overlay(OverlayTexture.NO_OVERLAY).lightmap(parentPackedLight).normal(matrix3f, 0.0F, 0.0F, 1.0F).endVertex();
 
+//            matrixStackIn.pop();
+        }
+    }
 
-            GlStateManager.popMatrix();
-
-            GlStateManager.enableCull();
-
-            //unsets the brightness by the parent renderer
-            if(resetBrightness)
+    @Override
+    public Vec3d getRenderOffset(GrinderEntity grinder, float partialTicks)
+    {
+        if(grinder.properties != null && grinder.parent != null)
+        {
+            EntityRenderer<LivingEntity> renderer = (EntityRenderer<LivingEntity>)this.renderManager.getRenderer(grinder.parent);
+            if(renderer != null)
             {
-                ((LivingRenderer)parentRenderer).unsetBrightness();
+                return renderer.getRenderOffset(grinder.parent, partialTicks);
             }
         }
+        return Vec3d.ZERO;
     }
 
     public static class RenderFactory implements IRenderFactory<GrinderEntity>

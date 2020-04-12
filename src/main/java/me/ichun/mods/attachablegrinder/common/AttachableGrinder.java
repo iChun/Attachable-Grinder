@@ -40,7 +40,7 @@ public class AttachableGrinder
     public static GrinderProperties grinderProperties;
     public static PacketChannel channel;
 
-    public AttachableGrinder() //TODO add iChunUtil dependency
+    public AttachableGrinder() //TODO add iChunUtil dependency, ask the server for data pack info.
     {
         config = new Config(MOD_ID + "-server.toml").init();
 
@@ -50,13 +50,13 @@ public class AttachableGrinder
         bus.addListener(this::onClientSetup);
 
         grinderProperties = new GrinderProperties();
-        channel = new PacketChannel(new ResourceLocation(MOD_ID, "channel"), PROTOCOL, PacketGrinderProperties.class);
+        channel = new PacketChannel(new ResourceLocation(MOD_ID, "channel"), PROTOCOL, true, true, PacketGrinderProperties.class);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerLoggedIn);
     }
 
     private void onClientSetup(FMLClientSetupEvent event)
     {
-        RenderingRegistry.registerEntityRenderingHandler(GrinderEntity.class, new GrinderRenderer.RenderFactory());
+        RenderingRegistry.registerEntityRenderingHandler(EntityTypes.GRINDER.get(), new GrinderRenderer.RenderFactory());
     }
 
     private void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event)

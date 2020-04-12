@@ -30,7 +30,7 @@ public class GrinderItem extends Item
                 {
                     living.world.addEntity(new GrinderEntity(AttachableGrinder.EntityTypes.GRINDER.get(), living.world).setParent(living));
                 }
-                living.world.playSound(player, living.posX, living.posY, living.posZ, SoundEvents.ENTITY_PIG_SADDLE, living.getSoundCategory(), 0.5F, 1.0F);
+                living.world.playSound(player, living.getPosX(), living.getPosY(), living.getPosZ(), SoundEvents.ENTITY_PIG_SADDLE, living.getSoundCategory(), 0.5F, 1.0F);
 
                 stack.shrink(1);
                 return true;

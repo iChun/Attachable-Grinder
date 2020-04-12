@@ -72,7 +72,7 @@ public class GrinderEntity extends LatchedEntity<LivingEntity>
                     parent.remove();
 
                     Explosion.Mode explosion$mode = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.world, parent) ? Explosion.Mode.DESTROY : Explosion.Mode.NONE;
-                    world.createExplosion(parent, posX, posY, posZ, (float)(((float)AttachableGrinder.config.explosionMagnitude / 100F) + properties.explosionBonus), explosion$mode);
+                    world.createExplosion(parent, getPosX(), getPosY(), getPosZ(), (float)(((float)AttachableGrinder.config.explosionMagnitude / 100F) + properties.explosionBonus), explosion$mode);
                 }
                 if(ticks % timeBetweenYield == (timeBetweenYield - 1))
                 {
@@ -119,9 +119,9 @@ public class GrinderEntity extends LatchedEntity<LivingEntity>
             return;
         }
 
-        double x = parent.posX;
-        double y = parent.posY + (properties.isVertical ? properties.offsetUp - 0.3D : properties.offsetUp);
-        double z = parent.posZ;
+        double x = parent.getPosX();
+        double y = parent.getPosY() + (properties.isVertical ? properties.offsetUp - 0.3D : properties.offsetUp);
+        double z = parent.getPosZ();
         ItemEntity item = new ItemEntity(this.world, x, y, z, stack);
         item.setDefaultPickupDelay();
 
@@ -157,7 +157,7 @@ public class GrinderEntity extends LatchedEntity<LivingEntity>
         }
 
         world.addEntity(item);
-        world.playSound(null, this.posX, this.posY, this.posZ, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.NEUTRAL, 0.2F, 1.0F + (rand.nextFloat() - rand.nextFloat()) * 0.4F);
+        world.playSound(null, this.getPosX(), this.getPosY(), this.getPosZ(), SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.NEUTRAL, 0.2F, 1.0F + (rand.nextFloat() - rand.nextFloat()) * 0.4F);
     }
 
     @Override
