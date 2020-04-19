@@ -52,7 +52,7 @@ public class AttachableGrinder
         bus.addListener(this::onClientSetup);
 
         grinderProperties = new GrinderProperties();
-        channel = new PacketChannel(new ResourceLocation(MOD_ID, "channel"), PROTOCOL, true, true, PacketGrinderProperties.class);
+        channel = new PacketChannel(new ResourceLocation(MOD_ID, "channel"), PROTOCOL, PacketGrinderProperties.class);
         MinecraftForge.EVENT_BUS.addListener(this::onPlayerLoggedIn);
     }
 
