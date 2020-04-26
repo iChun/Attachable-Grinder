@@ -47,7 +47,12 @@ public class GrinderEntity extends LatchedEntity<LivingEntity>
     @Override
     public void tick()
     {
-        super.tick(); //handles all the parent stuff. Parent will never be null when tick is happening
+        super.tick(); //handles all the parent stuff.
+
+        if(parent == null)
+        {
+            return;
+        }
 
         if(properties == null)
         {
