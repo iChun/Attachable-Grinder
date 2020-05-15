@@ -38,6 +38,7 @@ public class GrinderEntity extends LatchedEntity<LivingEntity>
     public GrinderEntity(EntityType<? extends GrinderEntity> type, World world)
     {
         super(type, world);
+        noClip = true;
 
         remainingYield = AttachableGrinder.config.grinderYield + rand.nextInt(AttachableGrinder.config.randomExtraYield + 1);
         timeBetweenYield = AttachableGrinder.config.frequency;
