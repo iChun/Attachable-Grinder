@@ -34,9 +34,9 @@ public class Config extends ConfigBase
     @Prop(comment = "Entities to disable from having the attachable grinder attached. By resource name (eg: minecraft:pig)")
     public List<String> disabledEntities = new ArrayList<>();
 
-    public Config(@Nonnull String pathName)
+    public Config(@Nonnull String fileName)
     {
-        super(pathName);
+        super(fileName);
     }
 
     @Nonnull

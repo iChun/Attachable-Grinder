@@ -42,7 +42,7 @@ public class AttachableGrinder
     public static GrinderProperties grinderProperties;
     public static PacketChannel channel;
 
-    public AttachableGrinder() //TODO add iChunUtil dependency, ask the server for data pack info.
+    public AttachableGrinder() //TODO add iChunUtil dependency
     {
         config = new Config(MOD_ID + "-server.toml").init();
 
