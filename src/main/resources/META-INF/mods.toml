@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/iChun/Attachable-Grinder/issues"
 [[mods]]
     modId="attachablegrinder"
     version="${file.jarVersion}" #mandatory
-    displayName="AttachableGrinder"
+    displayName="Attachable Grinder"
     displayURL="https://ichun.me/mods/attachable-grinder/"
     authors="iChun"
     description='''
