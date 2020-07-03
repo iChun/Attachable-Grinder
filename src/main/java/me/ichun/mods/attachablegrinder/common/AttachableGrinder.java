@@ -69,14 +69,14 @@ public class AttachableGrinder
 
     public static class Items
     {
-        private static final DeferredRegister<Item> REGISTRY = new DeferredRegister<>(ForgeRegistries.ITEMS, MOD_ID);
+        private static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
 
         public static final RegistryObject<GrinderItem> GRINDER = REGISTRY.register("grinder", () -> new GrinderItem(new Item.Properties().maxStackSize(1).group(ItemGroup.TOOLS)));
     }
 
     public static class EntityTypes
     {
-        private static final DeferredRegister<EntityType<?>> REGISTRY = new DeferredRegister<>(ForgeRegistries.ENTITIES, MOD_ID);
+        private static final DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.ENTITIES, MOD_ID);
 
         public static final RegistryObject<EntityType<GrinderEntity>> GRINDER = REGISTRY.register("grinder", () -> EntityType.Builder.create(GrinderEntity::new, EntityClassification.MISC)
                 .size(0.1F, 0.1F)
