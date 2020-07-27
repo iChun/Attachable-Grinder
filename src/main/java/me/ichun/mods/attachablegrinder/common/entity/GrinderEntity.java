@@ -9,6 +9,10 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.loot.LootContext;
+import net.minecraft.loot.LootParameterSets;
+import net.minecraft.loot.LootParameters;
+import net.minecraft.loot.LootTable;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
@@ -19,10 +23,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.Explosion;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.storage.loot.LootContext;
-import net.minecraft.world.storage.loot.LootParameterSets;
-import net.minecraft.world.storage.loot.LootParameters;
-import net.minecraft.world.storage.loot.LootTable;
 
 public class GrinderEntity extends LatchedEntity<LivingEntity>
 {
@@ -85,7 +85,7 @@ public class GrinderEntity extends LatchedEntity<LivingEntity>
                     if(!(parent instanceof PlayerEntity))
                     {
                         LootTable lootTable = world.getServer().getLootTableManager().getLootTableFromLocation(new ResourceLocation(properties.lootTable));
-                        LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerWorld)this.world)).withRandom(this.rand).withParameter(LootParameters.THIS_ENTITY, parent).withParameter(LootParameters.POSITION, new BlockPos(parent)).withParameter(LootParameters.DAMAGE_SOURCE, GRINDER).withNullableParameter(LootParameters.KILLER_ENTITY, GRINDER.getTrueSource()).withNullableParameter(LootParameters.DIRECT_KILLER_ENTITY, GRINDER.getImmediateSource());
+                        LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerWorld)this.world)).withRandom(this.rand).withParameter(LootParameters.THIS_ENTITY, parent).withParameter(LootParameters.POSITION, new BlockPos(parent.getPositionVec())).withParameter(LootParameters.DAMAGE_SOURCE, GRINDER).withNullableParameter(LootParameters.KILLER_ENTITY, GRINDER.getTrueSource()).withNullableParameter(LootParameters.DIRECT_KILLER_ENTITY, GRINDER.getImmediateSource());
                         lootTable.generate(lootcontext$builder.build(LootParameterSets.ENTITY), this::grind);
                         remainingYield--;
                     }

@@ -7,6 +7,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.util.SoundEvents;
 
@@ -19,7 +20,7 @@ public class GrinderItem extends Item
         super(properties);
     }
 
-    public boolean itemInteractionForEntity(ItemStack stack, PlayerEntity player, LivingEntity living, Hand hand)
+    public ActionResultType itemInteractionForEntity(ItemStack stack, PlayerEntity player, LivingEntity living, Hand hand)
     {
         if(canAttach(living) && !living.isChild() && living.isAlive())
         {
@@ -33,10 +34,10 @@ public class GrinderItem extends Item
                 living.world.playSound(player, living.getPosX(), living.getPosY(), living.getPosZ(), SoundEvents.ENTITY_PIG_SADDLE, living.getSoundCategory(), 0.5F, 1.0F);
 
                 stack.shrink(1);
-                return true;
+                return ActionResultType.func_233537_a_(living.world.isRemote);
             }
         }
-        return false;
+        return ActionResultType.PASS;
     }
 
     public static boolean canAttach(LivingEntity living)

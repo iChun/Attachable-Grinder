@@ -6,7 +6,8 @@ import me.ichun.mods.attachablegrinder.common.AttachableGrinder;
 import me.ichun.mods.attachablegrinder.common.entity.GrinderEntity;
 import me.ichun.mods.attachablegrinder.common.grinder.GrinderProperties;
 import me.ichun.mods.ichunutil.client.render.LatchedEntityRenderer;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.IRenderTypeBuffer;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.texture.OverlayTexture;
@@ -14,7 +15,10 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Pose;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.vector.Matrix3f;
+import net.minecraft.util.math.vector.Matrix4f;
+import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.vector.Vector3f;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
 
 public class GrinderRenderer extends LatchedEntityRenderer<GrinderEntity>
@@ -43,7 +47,7 @@ public class GrinderRenderer extends LatchedEntityRenderer<GrinderEntity>
 
             //we need the parent's rendering position, not the grinder's
             //we need to get the camera position. Get the current active render info
-            Vec3d vec3d = this.renderManager.info.getProjectedView();
+            Vector3d vec3d = this.renderManager.info.getProjectedView();
             double camX = vec3d.getX();
             double camY = vec3d.getY();
             double camZ = vec3d.getZ();
@@ -58,7 +62,7 @@ public class GrinderRenderer extends LatchedEntityRenderer<GrinderEntity>
 
             //      this.renderManager.renderEntityStatic(entityIn, d0 - camX, d1 - camY, d2 - camZ, f, partialTicks, matrixStackIn, bufferIn, this.renderManager.getPackedLight(entityIn, partialTicks));
             int parentPackedLight = this.renderManager.getPackedLight(grinder.parent, partialTick);
-            Vec3d renderOffset = this.getRenderOffset(grinder, partialTick);
+            Vector3d renderOffset = this.getRenderOffset(grinder, partialTick);
             double pX = d0 - camX + renderOffset.getX();
             double pY = d1 - camY + renderOffset.getY();
             double pZ = d2 - camZ + renderOffset.getZ();
@@ -121,12 +125,12 @@ public class GrinderRenderer extends LatchedEntityRenderer<GrinderEntity>
             ivertexbuilder.pos(matrix4f, +0.5F, +0.5F, 0F).color(255, 255, 255, 255).tex(1F, 1F).overlay(OverlayTexture.NO_OVERLAY).lightmap(parentPackedLight).normal(matrix3f, 0.0F, 0.0F, 1.0F).endVertex();
             ivertexbuilder.pos(matrix4f, -0.5F, +0.5F, 0F).color(255, 255, 255, 255).tex(0F, 1F).overlay(OverlayTexture.NO_OVERLAY).lightmap(parentPackedLight).normal(matrix3f, 0.0F, 0.0F, 1.0F).endVertex();
 
-//            matrixStackIn.pop();
+            //            matrixStackIn.pop();
         }
     }
 
     @Override
-    public Vec3d getRenderOffset(GrinderEntity grinder, float partialTicks)
+    public Vector3d getRenderOffset(GrinderEntity grinder, float partialTicks)
     {
         if(grinder.properties != null && grinder.parent != null)
         {
@@ -136,7 +140,7 @@ public class GrinderRenderer extends LatchedEntityRenderer<GrinderEntity>
                 return renderer.getRenderOffset(grinder.parent, partialTicks);
             }
         }
-        return Vec3d.ZERO;
+        return Vector3d.ZERO;
     }
 
     public static class RenderFactory implements IRenderFactory<GrinderEntity>
