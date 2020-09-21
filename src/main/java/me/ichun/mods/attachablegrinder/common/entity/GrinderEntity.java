@@ -85,7 +85,7 @@ public class GrinderEntity extends LatchedEntity<LivingEntity>
                     if(!(parent instanceof PlayerEntity))
                     {
                         LootTable lootTable = world.getServer().getLootTableManager().getLootTableFromLocation(new ResourceLocation(properties.lootTable));
-                        LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerWorld)this.world)).withRandom(this.rand).withParameter(LootParameters.THIS_ENTITY, parent).withParameter(LootParameters.POSITION, new BlockPos(parent.getPositionVec())).withParameter(LootParameters.DAMAGE_SOURCE, GRINDER).withNullableParameter(LootParameters.KILLER_ENTITY, GRINDER.getTrueSource()).withNullableParameter(LootParameters.DIRECT_KILLER_ENTITY, GRINDER.getImmediateSource());
+                        LootContext.Builder lootcontext$builder = (new LootContext.Builder((ServerWorld)this.world)).withRandom(this.rand).withParameter(LootParameters.THIS_ENTITY, parent).withParameter(LootParameters.field_237457_g_, parent.getPositionVec()).withParameter(LootParameters.DAMAGE_SOURCE, GRINDER).withNullableParameter(LootParameters.KILLER_ENTITY, GRINDER.getTrueSource()).withNullableParameter(LootParameters.DIRECT_KILLER_ENTITY, GRINDER.getImmediateSource());
                         lootTable.generate(lootcontext$builder.build(LootParameterSets.ENTITY), this::grind);
                         remainingYield--;
                     }
