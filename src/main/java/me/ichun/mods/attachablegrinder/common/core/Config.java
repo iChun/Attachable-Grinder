@@ -31,7 +31,6 @@ public class Config extends ConfigBase
     @Prop(min = 0)
     public int explosionMagnitude = 150;//divide by 100F;
 
-    @Prop
     public List<String> disabledEntities = new ArrayList<>();
 
     public Config(@Nonnull String fileName)

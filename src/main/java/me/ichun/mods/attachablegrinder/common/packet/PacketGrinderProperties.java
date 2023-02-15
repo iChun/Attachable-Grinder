@@ -37,7 +37,7 @@ public class PacketGrinderProperties extends AbstractPacket
     @Override
     public void readFrom(PacketBuffer buf)
     {
-        String s = readString(buf); //this method is client only but this is a s->c packet
+        String s = readString(buf);
         while(!s.equals("##endPacket"))
         {
             String json = readString(buf);
